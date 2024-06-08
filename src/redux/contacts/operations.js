@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSelector } from "@reduxjs/toolkit";
 import axios from "axios";
-import { selectFilter } from "./selectors";
+import { selectFilter } from "../filters/selectors";
 
 axios.defaults.baseURL = "https://6659ad32de346625136d79ea.mockapi.io/";
 

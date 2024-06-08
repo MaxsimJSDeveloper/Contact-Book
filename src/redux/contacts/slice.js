@@ -4,8 +4,9 @@ import {
   deleteContact,
   fetchContacts,
   filteredContacts,
-} from "./contactsOps";
-import { selectContacts, selectFilter } from "./selectors";
+} from "./operations";
+import { selectContacts } from "./selectors";
+import { selectFilter } from "../filters/selectors";
 
 export const handlePending = (state) => {
   state.isLoading = true;
