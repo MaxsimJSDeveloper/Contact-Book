@@ -2,12 +2,12 @@ import "./App.css";
 
 import { useDispatch } from "react-redux";
 import { lazy, useEffect } from "react";
-import { fetchContacts } from "./redux/contacts/operations";
 import { useAuth } from "./hooks";
 import { Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { RestrictedRoute } from "./components/RestrictedRoute";
 import { Layout } from "./components/Layout/Layout";
+import { refreshUser } from "./redux/auth/operations";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
@@ -22,7 +22,7 @@ function App() {
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return isRefreshing ? (

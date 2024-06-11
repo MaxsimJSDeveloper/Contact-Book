@@ -7,6 +7,7 @@ import {
 } from "./operations";
 import { selectContacts } from "./selectors";
 import { selectFilter } from "../filters/selectors";
+import { logOut } from "../auth/operations";
 
 export const handlePending = (state) => {
   state.isLoading = true;
@@ -49,6 +50,11 @@ const contactsSlice = createSlice({
           (task) => task.id === action.payload.id
         );
         state.items.splice(index, 1);
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
+        state.error = null;
+        state.isLoading = false;
       });
   },
 });
