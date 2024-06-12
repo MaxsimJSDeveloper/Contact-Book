@@ -15,7 +15,6 @@ const SearchBox = () => {
 
   return (
     <div className={css.searchBoxContainer}>
-      <h3>Find contacts by name</h3>
       <input
         type="text"
         value={filter}
