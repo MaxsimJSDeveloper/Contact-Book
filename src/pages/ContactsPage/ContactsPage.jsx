@@ -4,11 +4,19 @@ import { fetchContacts } from "../../redux/contacts/operations";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import { Helmet } from "react-helmet";
-import { selectIsLoading } from "../../redux/contacts/selectors";
+import {
+  selectContacts,
+  selectError,
+  selectIsLoading,
+} from "../../redux/contacts/selectors";
+import SearchBox from "../../components/SearchBox/SearchBox";
 
 export default function Contacts() {
   const dispatch = useDispatch();
+
+  const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -20,8 +28,12 @@ export default function Contacts() {
         <title>Your contacts</title>
       </Helmet>
       <ContactForm />
-      <div>{isLoading && "Request in progress..."}</div>
-      <ContactList />
+      <SearchBox />
+      <div>
+        {isLoading && "Request in progress..."}
+        {error && "Error! Try again"}
+      </div>
+      <ContactList contacts={contacts} />
     </>
   );
 }

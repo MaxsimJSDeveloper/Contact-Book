@@ -1,7 +1,5 @@
-import { createAsyncThunk, createSelector } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { selectFilter } from "../filters/selectors";
-import { selectContacts } from "./selectors";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
@@ -37,15 +35,4 @@ export const deleteContact = createAsyncThunk(
       return thunkAPI.rejectWithValue(e.message);
     }
   }
-);
-
-const filterContacts = (contacts, filter) => {
-  return contacts.items.filter((contact) =>
-    contact.name.toLowerCase().includes(filter.name.toLowerCase())
-  );
-};
-
-export const filteredContacts = createSelector(
-  [selectContacts, selectFilter],
-  (contacts, filter) => filterContacts(contacts, filter)
 );
