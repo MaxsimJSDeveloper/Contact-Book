@@ -26,11 +26,11 @@ const LoginForm = () => {
       initialValues={{ email: "", password: "" }}
       validationSchema={FeedbackSchema}
       onSubmit={(values, actions) => {
-        const newUser = {
+        const userData = {
           email: values.email,
           password: values.password,
         };
-        dispatch(logIn(newUser));
+        dispatch(logIn(userData));
         actions.resetForm();
       }}
     >
