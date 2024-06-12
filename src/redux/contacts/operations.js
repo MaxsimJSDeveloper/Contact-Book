@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSelector } from "@reduxjs/toolkit";
 import axios from "axios";
 import { selectFilter } from "../filters/selectors";
+import { selectContacts } from "./selectors";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
@@ -44,8 +45,7 @@ const filterContacts = (contacts, filter) => {
   );
 };
 
-export const selectContact = (state) => state.contacts;
 export const filteredContacts = createSelector(
-  [selectContact, selectFilter],
+  [selectContacts, selectFilter],
   (contacts, filter) => filterContacts(contacts, filter)
 );
