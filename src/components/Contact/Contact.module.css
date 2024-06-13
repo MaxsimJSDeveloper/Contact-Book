@@ -1,11 +1,7 @@
-/* Contact.module.css */
-
 .contact {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f9f9f9;
   margin-bottom: 10px;
+  display: flex;
 }
 
 .contactName {
@@ -17,14 +13,20 @@
 }
 
 .deleteButton {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 10px;
   cursor: pointer;
+  border: none;
 }
 
-.deleteButton:hover {
-  background-color: #c82333;
+.icon {
+  width: 36px;
+  height: 36px;
+  fill: #dc0007;
+}
+
+.icon:hover {
+  fill: #a90006;
+}
+
+.data {
+  margin-right: auto;
 }
