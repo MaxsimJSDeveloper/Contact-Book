@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+import toast from "react-hot-toast";
 
 const FeedbackSchema = Yup.object().shape({
   username: Yup.string()
@@ -34,7 +35,16 @@ const ContactForm = () => {
           name: values.username,
           number: values.number,
         };
-        dispatch(addContact(newContact));
+        dispatch(addContact(newContact))
+          .unwrap()
+          .then(() => {
+            toast.success("Successfully add!", { position: "top-center" });
+          })
+          .catch(() => {
+            toast.error("Error, input correct data", {
+              position: "top-center",
+            });
+          });
         actions.resetForm();
       }}
     >

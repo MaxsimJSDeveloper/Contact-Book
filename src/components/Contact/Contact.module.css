@@ -2,6 +2,10 @@
   padding: 10px;
   margin-bottom: 10px;
   display: flex;
+  align-items: center;
+  background-color: #dadada;
+  border-radius: 6px;
+  height: 70px;
 }
 
 .contactName {
@@ -12,9 +16,10 @@
   color: #666;
 }
 
-.deleteButton {
+.button {
   cursor: pointer;
   border: none;
+  background-color: #dadada;
 }
 
 .icon {

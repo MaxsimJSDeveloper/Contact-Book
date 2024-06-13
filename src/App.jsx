@@ -10,6 +10,7 @@ import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import Layout from "./components/Layout/Layout";
 import { Toaster } from "react-hot-toast";
+import { InfinitySpin } from "react-loader-spinner";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
@@ -28,7 +29,12 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <InfinitySpin
+      visible={true}
+      width="200"
+      color="#00f2ff"
+      ariaLabel="infinity-spin-loading"
+    />
   ) : (
     <>
       <Routes>

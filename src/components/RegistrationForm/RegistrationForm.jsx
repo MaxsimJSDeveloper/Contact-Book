@@ -16,7 +16,7 @@ const FeedbackSchema = Yup.object().shape({
     .email("Please enter a valid email address")
     .required("Required"),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
+    .min(8, "Password must be at least 8 characters")
     .required("Required"),
 });
 
@@ -40,10 +40,10 @@ const RegistrationForm = () => {
         dispatch(register(newUser))
           .unwrap()
           .then(() => {
-            toast.success("Successfully toasted!", { position: "top-center" });
+            toast.success("Success!", { position: "top-center" });
           })
           .catch(() => {
-            toast.error("Server is sleep, try again later", {
+            toast.error("Error, input correct data", {
               position: "top-center",
             });
           });
@@ -70,7 +70,7 @@ const RegistrationForm = () => {
           Email
         </label>
         <Field
-          type="text"
+          type="email"
           name="email"
           id={mailFieldId}
           className={css.inputField}
@@ -85,7 +85,7 @@ const RegistrationForm = () => {
           Password
         </label>
         <Field
-          type="text"
+          type="password"
           name="password"
           id={passwordFieldId}
           className={css.inputField}

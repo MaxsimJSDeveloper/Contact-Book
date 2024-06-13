@@ -11,7 +11,7 @@ const FeedbackSchema = Yup.object().shape({
     .email("Please enter a valid email address")
     .required("Required"),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
+    .min(8, "Password must be at least 8 characters")
     .required("Required"),
 });
 
@@ -39,7 +39,7 @@ const LoginForm = () => {
           Email
         </label>
         <Field
-          type="text"
+          type="email"
           name="email"
           id={mailFieldId}
           className={css.inputField}
@@ -54,7 +54,7 @@ const LoginForm = () => {
           Password
         </label>
         <Field
-          type="text"
+          type="password"
           name="password"
           id={passwordFieldId}
           className={css.inputField}

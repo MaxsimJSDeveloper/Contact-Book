@@ -14,11 +14,11 @@ const Contact = ({ name, number, id }) => {
         <p className={css.contactName}>Name: {name}</p>
         <p className={css.contactNumber}>Number: {number}</p>
       </div>
-      <button className={css.edit} type="button">
+      <button className={css.button} type="button">
         <MdModeEdit className={css.pencil} />
       </button>
       <button
-        className={css.deleteButton}
+        className={css.button}
         type="button"
         onClick={() => dispatch(handleDelete)}
       >
