@@ -10,6 +10,7 @@ import {
   selectIsLoading,
 } from "../../redux/contacts/selectors";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import { InfinitySpin } from "react-loader-spinner";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -30,7 +31,14 @@ export default function Contacts() {
       <ContactForm />
       <SearchBox />
       <div>
-        {isLoading && "Request in progress..."}
+        {isLoading && (
+          <InfinitySpin
+            visible={true}
+            width="200"
+            color="#00f2ff"
+            ariaLabel="infinity-spin-loading"
+          />
+        )}
         {error && "Error! Try again"}
       </div>
       <ContactList contacts={contacts} />

@@ -5,6 +5,7 @@ import css from "./RegistrationForm.module.css";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
+import toast from "react-hot-toast";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -36,7 +37,16 @@ const RegistrationForm = () => {
           email: values.email,
           password: values.password,
         };
-        dispatch(register(newUser));
+        dispatch(register(newUser))
+          .unwrap()
+          .then(() => {
+            toast.success("Successfully toasted!", { position: "top-center" });
+          })
+          .catch(() => {
+            toast.error("Server is sleep, try again later", {
+              position: "top-center",
+            });
+          });
         actions.resetForm();
       }}
     >

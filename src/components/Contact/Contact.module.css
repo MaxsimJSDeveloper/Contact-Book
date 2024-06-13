@@ -23,6 +23,16 @@
   fill: #dc0007;
 }
 
+.pencil {
+  width: 36px;
+  height: 36px;
+  fill: #0080dc;
+}
+
+.pencil:hover {
+  fill: #005089;
+}
+
 .icon:hover {
   fill: #a90006;
 }
