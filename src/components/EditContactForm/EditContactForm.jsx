@@ -1,4 +1,4 @@
-import css from "./ContactForm.module.css";
+import css from "./EditContactForm.module.css";
 
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useId } from "react";
@@ -7,7 +7,7 @@ import { addContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
 import { FeedbackSchema } from "../../validation";
 
-const ContactForm = () => {
+const EditContactForm = () => {
   const nameFieldId = useId();
   const phoneFieldId = useId();
 
@@ -67,11 +67,11 @@ const ContactForm = () => {
         />
 
         <button type="submit" className={css.submitButton}>
-          Add contact
+          Edit
         </button>
       </Form>
     </Formik>
   );
 };
 
-export default ContactForm;
+export default EditContactForm;

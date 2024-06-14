@@ -3,22 +3,9 @@ import { register } from "../../redux/auth/operations";
 import css from "./RegistrationForm.module.css";
 
 import { Field, Form, Formik, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { useId } from "react";
 import toast from "react-hot-toast";
-
-const FeedbackSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  email: Yup.string()
-    .email("Please enter a valid email address")
-    .required("Required"),
-  password: Yup.string()
-    .min(8, "Password must be at least 8 characters")
-    .required("Required"),
-});
+import { regist } from "../../validation";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -30,7 +17,7 @@ const RegistrationForm = () => {
   return (
     <Formik
       initialValues={{ name: "", email: "", password: "" }}
-      validationSchema={FeedbackSchema}
+      validationSchema={regist}
       onSubmit={(values, actions) => {
         const newUser = {
           name: values.name,
