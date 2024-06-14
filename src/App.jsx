@@ -29,12 +29,14 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <InfinitySpin
-      visible={true}
-      width="200"
-      color="#00f2ff"
-      ariaLabel="infinity-spin-loading"
-    />
+    <div className="loader">
+      <InfinitySpin
+        visible={true}
+        width="200"
+        color="#00f2ff"
+        ariaLabel="infinity-spin-loading"
+      />
+    </div>
   ) : (
     <>
       <Routes>
