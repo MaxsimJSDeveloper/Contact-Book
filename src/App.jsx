@@ -11,7 +11,6 @@ import { selectIsRefreshing } from "./redux/auth/selectors";
 import Layout from "./components/Layout/Layout";
 import { Toaster } from "react-hot-toast";
 import { InfinitySpin } from "react-loader-spinner";
-import EditContactForm from "./components/EditContactForm/EditContactForm";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
@@ -70,7 +69,6 @@ function App() {
         </Route>
       </Routes>
       <Toaster position="top-center" reverseOrder={false} />
-      <EditContactForm />
     </>
   );
 }

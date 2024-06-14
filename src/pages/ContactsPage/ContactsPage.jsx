@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
-import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import { Helmet } from "react-helmet";
 import {
@@ -11,6 +10,7 @@ import {
 } from "../../redux/contacts/selectors";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { InfinitySpin } from "react-loader-spinner";
+import FormsWrap from "../../components/FormsWrap/FormsWrap";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <ContactForm />
+      <FormsWrap />
       <SearchBox />
       <div>
         {isLoading && (
