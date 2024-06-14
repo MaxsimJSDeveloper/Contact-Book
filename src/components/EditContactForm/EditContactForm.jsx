@@ -1,39 +1,62 @@
-import css from "./EditContactForm.module.css";
-
+// src/components/EditContactForm/EditContactForm.jsx
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useId } from "react";
-import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
+import { useDispatch, useSelector } from "react-redux";
+import { editContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
 import { FeedbackSchema } from "../../validation";
+
+import css from "./EditContactForm.module.css";
+import {
+  selectActiveContactId,
+  selectContacts,
+  selectIsModalOpen,
+} from "../../redux/contacts/selectors";
+import { clearActiveContactId, toggleModal } from "../../redux/contacts/slice";
 
 const EditContactForm = () => {
   const nameFieldId = useId();
   const phoneFieldId = useId();
 
+  const isOpen = useSelector(selectIsModalOpen);
+  const activeContactId = useSelector(selectActiveContactId);
+  const contacts = useSelector(selectContacts);
+
+  const activeContact =
+    contacts.find((contact) => contact.id === activeContactId) || {};
+
   const dispatch = useDispatch();
 
-  return (
+  const handleSubmit = (values, actions) => {
+    dispatch(
+      editContact({
+        id: activeContactId,
+        name: values.username,
+        number: values.number,
+      })
+    )
+      .unwrap()
+      .then(() => {
+        toast.success("Successfully updated!", { position: "top-center" });
+        dispatch(clearActiveContactId());
+        dispatch(toggleModal());
+      })
+      .catch(() => {
+        toast.error("Error, input correct data", {
+          position: "top-center",
+        });
+      });
+    actions.resetForm();
+  };
+
+  return isOpen ? (
     <Formik
-      initialValues={{ username: "", number: "" }}
-      validationSchema={FeedbackSchema}
-      onSubmit={(values, actions) => {
-        const newContact = {
-          name: values.username,
-          number: values.number,
-        };
-        dispatch(addContact(newContact))
-          .unwrap()
-          .then(() => {
-            toast.success("Successfully add!", { position: "top-center" });
-          })
-          .catch(() => {
-            toast.error("Error, input correct data", {
-              position: "top-center",
-            });
-          });
-        actions.resetForm();
+      initialValues={{
+        username: activeContact.name || "",
+        number: activeContact.number || "",
       }}
+      validationSchema={FeedbackSchema}
+      onSubmit={handleSubmit}
     >
       <Form className={css.formContainer}>
         <label htmlFor={nameFieldId} className={css.label}>
@@ -71,7 +94,7 @@ const EditContactForm = () => {
         </button>
       </Form>
     </Formik>
-  );
+  ) : null;
 };
 
 export default EditContactForm;
