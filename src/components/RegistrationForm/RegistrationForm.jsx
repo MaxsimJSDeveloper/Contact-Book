@@ -41,48 +41,51 @@ const RegistrationForm = () => {
         <label htmlFor={nameFieldId} className={css.label}>
           Name
         </label>
-        <Field
-          type="text"
-          name="name"
-          id={nameFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="name"
-          component="span"
-          className={css.errorMessage}
-        />
-
+        <div className={css.wrap}>
+          <Field
+            type="text"
+            name="name"
+            id={nameFieldId}
+            className={css.inputField}
+          />
+          <ErrorMessage
+            name="name"
+            component="span"
+            className={css.errorMessage}
+          />
+        </div>
         <label htmlFor={mailFieldId} className={css.label}>
           Email
         </label>
-        <Field
-          type="email"
-          name="email"
-          id={mailFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="email"
-          component="span"
-          className={css.errorMessage}
-        />
-
+        <div className={css.wrap}>
+          <Field
+            type="email"
+            name="email"
+            id={mailFieldId}
+            className={css.inputField}
+          />
+          <ErrorMessage
+            name="email"
+            component="span"
+            className={css.errorMessage}
+          />
+        </div>
         <label htmlFor={passwordFieldId} className={css.label}>
           Password
         </label>
-        <Field
-          type="password"
-          name="password"
-          id={passwordFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="password"
-          component="span"
-          className={css.errorMessage}
-        />
-
+        <div className={css.wrap}>
+          <Field
+            type="password"
+            name="password"
+            id={passwordFieldId}
+            className={css.inputField}
+          />
+          <ErrorMessage
+            name="password"
+            component="span"
+            className={css.errorMessage}
+          />
+        </div>
         <button type="submit" className={css.submitButton}>
           Register
         </button>

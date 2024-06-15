@@ -13,6 +13,7 @@ import {
   selectIsModalOpen,
 } from "../../redux/contacts/selectors";
 import { clearActiveContactId, toggleModal } from "../../redux/contacts/slice";
+import { handleKeyPress } from "../../handleKeyPress";
 
 const EditContactForm = () => {
   const nameFieldId = useId();
@@ -62,32 +63,38 @@ const EditContactForm = () => {
         <label htmlFor={nameFieldId} className={css.label}>
           Username
         </label>
-        <Field
-          type="text"
-          name="username"
-          id={nameFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="username"
-          component="span"
-          className={css.errorMessage}
-        />
+        <div className={css.wrap}>
+          <Field
+            type="text"
+            name="username"
+            id={nameFieldId}
+            className={css.inputField}
+          />
+          <ErrorMessage
+            name="username"
+            component="span"
+            className={css.errorMessage}
+          />
+        </div>
 
         <label htmlFor={phoneFieldId} className={css.label}>
           Phone
         </label>
-        <Field
-          type="text"
-          name="number"
-          id={phoneFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="number"
-          component="span"
-          className={css.errorMessage}
-        />
+        <div className={css.wrap}>
+          <Field
+            type="text"
+            pattern="\d*"
+            onKeyPress={handleKeyPress}
+            name="number"
+            id={phoneFieldId}
+            className={css.inputField}
+          />
+          <ErrorMessage
+            name="number"
+            component="span"
+            className={css.errorMessage}
+          />
+        </div>
 
         <button type="submit" className={css.submitButton}>
           Edit

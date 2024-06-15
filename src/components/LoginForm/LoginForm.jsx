@@ -3,17 +3,8 @@ import { logIn } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
 
 import { Field, Form, Formik, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { useId } from "react";
-
-const FeedbackSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Please enter a valid email address")
-    .required("Required"),
-  password: Yup.string()
-    .min(8, "Password must be at least 8 characters")
-    .required("Required"),
-});
+import { login } from "../../validation";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -24,7 +15,7 @@ const LoginForm = () => {
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
-      validationSchema={FeedbackSchema}
+      validationSchema={login}
       onSubmit={(values, actions) => {
         const userData = {
           email: values.email,
@@ -38,32 +29,36 @@ const LoginForm = () => {
         <label htmlFor={mailFieldId} className={css.label}>
           Email
         </label>
-        <Field
-          type="email"
-          name="email"
-          id={mailFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="email"
-          component="span"
-          className={css.errorMessage}
-        />
+        <div className={css.wrap}>
+          <Field
+            type="email"
+            name="email"
+            id={mailFieldId}
+            className={css.inputField}
+          />
+          <ErrorMessage
+            name="email"
+            component="span"
+            className={css.errorMessage}
+          />
+        </div>
 
         <label htmlFor={passwordFieldId} className={css.label}>
           Password
         </label>
-        <Field
-          type="password"
-          name="password"
-          id={passwordFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="password"
-          component="span"
-          className={css.errorMessage}
-        />
+        <div className={css.wrap}>
+          <Field
+            type="password"
+            name="password"
+            id={passwordFieldId}
+            className={css.inputField}
+          />
+          <ErrorMessage
+            name="password"
+            component="span"
+            className={css.errorMessage}
+          />
+        </div>
 
         <button type="submit" className={css.submitButton}>
           Log In
