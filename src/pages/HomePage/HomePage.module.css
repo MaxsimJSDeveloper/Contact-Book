@@ -1,12 +1,43 @@
+.global {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 90vh;
+}
+
 .container {
-  min-height: calc(100vh - 50px);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.desc {
+  padding-bottom: 20px;
+}
+
+.icon {
+  height: 200px;
+  width: 200px;
+  fill: #4d4dff;
 }
 
 .title {
   font-weight: 500;
   font-size: 48px;
   text-align: center;
+}
+
+.creators {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #cacaca;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 350px;
+}
+
+.subtitle {
+  padding-bottom: 5px;
 }

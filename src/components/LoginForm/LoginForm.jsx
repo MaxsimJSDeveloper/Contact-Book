@@ -5,6 +5,7 @@ import css from "./LoginForm.module.css";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useId } from "react";
 import { login } from "../../validation";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,16 @@ const LoginForm = () => {
           email: values.email,
           password: values.password,
         };
-        dispatch(logIn(userData));
+        dispatch(logIn(userData))
+          .unwrap()
+          .then(() => {
+            toast.success("Success!", { position: "top-center" });
+          })
+          .catch(() => {
+            toast.error("Error, input correct data", {
+              position: "top-center",
+            });
+          });
         actions.resetForm();
       }}
     >

@@ -1,20 +1,30 @@
-import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
+import { useDispatch, useSelector } from "react-redux";
 import { MdDeleteForever, MdModeEdit } from "react-icons/md";
 import { FaPhoneAlt, FaUser } from "react-icons/fa";
-import { setActiveContact } from "../../redux/contacts/slice";
-
+import {
+  setActiveContact,
+  clearActiveContact,
+} from "../../redux/contacts/slice";
 import css from "./Contact.module.css";
+import { IconButton } from "@mui/material";
 
-const Contact = ({ name, number, id }) => {
+const Contact = ({ contact, modalOpenDelete }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    dispatch(deleteContact(id));
-  };
+  const { id, name, number } = contact;
+
+  const isModalOpen = useSelector((state) => state.contacts.isModalOpen);
 
   const handleEdit = () => {
-    dispatch(setActiveContact({ name, number, id }));
+    if (!isModalOpen) {
+      dispatch(setActiveContact({ name, number, id }));
+    } else {
+      dispatch(clearActiveContact());
+    }
+  };
+
+  const handleDelete = () => {
+    modalOpenDelete(id);
   };
 
   return (
@@ -30,9 +40,9 @@ const Contact = ({ name, number, id }) => {
       <button className={css.button} type="button" onClick={handleEdit}>
         <MdModeEdit className={css.pencil} />
       </button>
-      <button className={css.button} type="button" onClick={handleDelete}>
+      <IconButton variant="outlined" type="button" onClick={handleDelete}>
         <MdDeleteForever className={css.bin} />
-      </button>
+      </IconButton>
     </div>
   );
 };

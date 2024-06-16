@@ -6,13 +6,11 @@ import toast from "react-hot-toast";
 import { FeedbackSchema } from "../../validation";
 
 import css from "./EditContactForm.module.css";
-
 import {
+  clearActiveContact,
   selectActiveContact,
   selectIsOpen,
 } from "../../redux/contacts/selectors";
-import { clearActiveContact } from "../../redux/contacts/slice";
-import { handleKeyPress } from "../../handleKeyPress";
 
 const EditContactForm = () => {
   const nameFieldId = useId();
@@ -20,7 +18,6 @@ const EditContactForm = () => {
 
   const activeContact = useSelector(selectActiveContact);
   const isOpen = useSelector(selectIsOpen);
-
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -35,7 +32,7 @@ const EditContactForm = () => {
         .unwrap()
         .then(() => {
           toast.success("Successfully updated!", { position: "top-center" });
-          dispatch(clearActiveContact());
+          dispatch(clearActiveContact()); // Очищаем активный контакт после успешного обновления
         })
         .catch(() => {
           toast.error("Error, input correct data", {
@@ -82,7 +79,6 @@ const EditContactForm = () => {
           <Field
             type="text"
             pattern="\d*"
-            onKeyPress={handleKeyPress}
             name="number"
             id={phoneFieldId}
             className={css.inputField}
