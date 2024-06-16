@@ -1,4 +1,3 @@
-// src/components/EditContactForm/EditContactForm.jsx
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,50 +6,49 @@ import toast from "react-hot-toast";
 import { FeedbackSchema } from "../../validation";
 
 import css from "./EditContactForm.module.css";
+
 import {
-  selectActiveContactId,
-  selectContacts,
-  selectIsModalOpen,
+  selectActiveContact,
+  selectIsOpen,
 } from "../../redux/contacts/selectors";
-import { clearActiveContactId, toggleModal } from "../../redux/contacts/slice";
+import { clearActiveContact } from "../../redux/contacts/slice";
 import { handleKeyPress } from "../../handleKeyPress";
 
 const EditContactForm = () => {
   const nameFieldId = useId();
   const phoneFieldId = useId();
 
-  const isOpen = useSelector(selectIsModalOpen);
-  const activeContactId = useSelector(selectActiveContactId);
-  const contacts = useSelector(selectContacts);
-
-  const activeContact =
-    contacts.find((contact) => contact.id === activeContactId) || {};
+  const activeContact = useSelector(selectActiveContact);
+  const isOpen = useSelector(selectIsOpen);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(
-      editContact({
-        id: activeContactId,
-        name: values.username,
-        number: values.number,
-      })
-    )
-      .unwrap()
-      .then(() => {
-        toast.success("Successfully updated!", { position: "top-center" });
-        dispatch(clearActiveContactId());
-        dispatch(toggleModal());
-      })
-      .catch(() => {
-        toast.error("Error, input correct data", {
-          position: "top-center",
+    if (activeContact) {
+      dispatch(
+        editContact({
+          id: activeContact.id,
+          name: values.username,
+          number: values.number,
+        })
+      )
+        .unwrap()
+        .then(() => {
+          toast.success("Successfully updated!", { position: "top-center" });
+          dispatch(clearActiveContact());
+        })
+        .catch(() => {
+          toast.error("Error, input correct data", {
+            position: "top-center",
+          });
         });
-      });
-    actions.resetForm();
+      actions.resetForm();
+    } else {
+      toast.error("No active contact selected!", { position: "top-center" });
+    }
   };
 
-  return isOpen ? (
+  return isOpen && activeContact ? (
     <Formik
       initialValues={{
         username: activeContact.name || "",

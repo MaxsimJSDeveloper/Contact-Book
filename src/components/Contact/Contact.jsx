@@ -1,10 +1,10 @@
-// src/components/Contact/Contact.jsx
 import { useDispatch } from "react-redux";
-import css from "./Contact.module.css";
 import { deleteContact } from "../../redux/contacts/operations";
 import { MdDeleteForever, MdModeEdit } from "react-icons/md";
-import { setActiveContactId, toggleModal } from "../../redux/contacts/slice";
 import { FaPhoneAlt, FaUser } from "react-icons/fa";
+import { setActiveContact } from "../../redux/contacts/slice";
+
+import css from "./Contact.module.css";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -14,8 +14,7 @@ const Contact = ({ name, number, id }) => {
   };
 
   const handleEdit = () => {
-    dispatch(setActiveContactId(id));
-    dispatch(toggleModal());
+    dispatch(setActiveContact({ name, number, id }));
   };
 
   return (

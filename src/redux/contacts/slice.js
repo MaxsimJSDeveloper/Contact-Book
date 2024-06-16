@@ -25,17 +25,16 @@ const contactsSlice = createSlice({
     isLoading: false,
     error: null,
     isModalOpen: false,
-    activeContactId: null,
+    activeContact: null,
   },
   reducers: {
-    toggleModal(state) {
-      state.isModalOpen = !state.isModalOpen;
+    setActiveContact(state, action) {
+      state.activeContact = action.payload;
+      state.isModalOpen = true;
     },
-    setActiveContactId(state, action) {
-      state.activeContactId = action.payload;
-    },
-    clearActiveContactId(state) {
-      state.activeContactId = null;
+    clearActiveContact(state) {
+      state.activeContact = null;
+      state.isModalOpen = false;
     },
   },
   extraReducers: (builder) => {
@@ -82,9 +81,8 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { toggleModal, setActiveContactId, clearActiveContactId } =
+export const { setActiveContact, clearActiveContact, toggleModal } =
   contactsSlice.actions;
-
 export const contactsReducer = contactsSlice.reducer;
 
 export const selectFilteredContacts = createSelector(
