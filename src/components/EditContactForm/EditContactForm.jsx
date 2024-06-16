@@ -7,10 +7,10 @@ import { FeedbackSchema } from "../../validation";
 
 import css from "./EditContactForm.module.css";
 import {
-  clearActiveContact,
   selectActiveContact,
   selectIsOpen,
 } from "../../redux/contacts/selectors";
+import { clearActiveContact } from "../../redux/contacts/slice";
 
 const EditContactForm = () => {
   const nameFieldId = useId();
@@ -32,7 +32,7 @@ const EditContactForm = () => {
         .unwrap()
         .then(() => {
           toast.success("Successfully updated!", { position: "top-center" });
-          dispatch(clearActiveContact()); // Очищаем активный контакт после успешного обновления
+          dispatch(clearActiveContact());
         })
         .catch(() => {
           toast.error("Error, input correct data", {
