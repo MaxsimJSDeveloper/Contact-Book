@@ -2,7 +2,7 @@
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 0 20px;
+  gap: 0 16px;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
@@ -12,5 +12,5 @@
   padding: 10px;
   border-radius: 8px;
   background-color: #f1f1f1;
-  width: 355px;
+  width: 362px;
 }

@@ -3,7 +3,6 @@ import { useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
-import { FeedbackSchema } from "../../validation";
 
 import css from "./EditContactForm.module.css";
 import {
@@ -11,6 +10,7 @@ import {
   selectIsOpen,
 } from "../../redux/contacts/selectors";
 import { clearActiveContact } from "../../redux/contacts/slice";
+import { FeedbackSchema } from "../../js/validation";
 
 const EditContactForm = () => {
   const nameFieldId = useId();

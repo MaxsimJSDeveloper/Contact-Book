@@ -5,8 +5,9 @@ import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
-import { FeedbackSchema } from "../../validation";
-import { handleKeyPress } from "../../handleKeyPress";
+
+import { FeedbackSchema } from "../../js/validation";
+import { handleKeyPress } from "../../js/handleKeyPress";
 
 const ContactForm = () => {
   const nameFieldId = useId();

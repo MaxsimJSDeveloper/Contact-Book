@@ -5,7 +5,7 @@ import css from "./RegistrationForm.module.css";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useId } from "react";
 import toast from "react-hot-toast";
-import { regist } from "../../validation";
+import { regist } from "../../js/validation";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();

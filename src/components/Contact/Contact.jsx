@@ -6,7 +6,8 @@ import {
   clearActiveContact,
 } from "../../redux/contacts/slice";
 import css from "./Contact.module.css";
-import { IconButton } from "@mui/material";
+import { Avatar, IconButton } from "@mui/material";
+import { stringAvatar } from "../../js/utils";
 
 const Contact = ({ contact, modalOpenDelete }) => {
   const dispatch = useDispatch();
@@ -29,6 +30,11 @@ const Contact = ({ contact, modalOpenDelete }) => {
 
   return (
     <div className={css.contact}>
+      <Avatar
+        {...stringAvatar(contact.name)}
+        className={css.avatar}
+        sx={{ width: 58, height: 58, ...stringAvatar(contact.name).sx }}
+      />
       <div className={css.data}>
         <p className={css.info}>
           <FaUser className={css.infoIcon} /> {name}
@@ -37,10 +43,20 @@ const Contact = ({ contact, modalOpenDelete }) => {
           <FaPhoneAlt className={css.infoIcon} /> {number}
         </p>
       </div>
-      <button className={css.button} type="button" onClick={handleEdit}>
+      <IconButton
+        variant="outlined"
+        type="button"
+        style={{ padding: "5px" }}
+        onClick={handleEdit}
+      >
         <MdModeEdit className={css.pencil} />
-      </button>
-      <IconButton variant="outlined" type="button" onClick={handleDelete}>
+      </IconButton>
+      <IconButton
+        variant="outlined"
+        type="button"
+        style={{ padding: "5px" }}
+        onClick={handleDelete}
+      >
         <MdDeleteForever className={css.bin} />
       </IconButton>
     </div>
