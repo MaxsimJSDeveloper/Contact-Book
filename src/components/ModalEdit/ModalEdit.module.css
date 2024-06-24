@@ -1,3 +1,21 @@
+.cont {
+  background-color: #d9ebee;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  color: #007bff;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 2px;
+}
+
 .formContainer {
   margin-bottom: 20px;
   background-color: #d7d7d7;
@@ -19,13 +37,14 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .wrap {
   height: 60px;
   margin-bottom: 5px;
 }
 
 .errorMessage {
-  color: red;
+  color: #f20d0d;
   font-size: 12px;
   margin-top: 5px;
 }

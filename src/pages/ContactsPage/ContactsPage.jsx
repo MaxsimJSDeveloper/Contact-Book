@@ -9,8 +9,8 @@ import {
   selectIsLoading,
 } from "../../redux/contacts/selectors";
 import SearchBox from "../../components/SearchBox/SearchBox";
-import FormsWrap from "../../components/FormsWrap/FormsWrap";
 import Loader from "../../components/Loader/Loader";
+import ContactForm from "../../components/ContactForm/ContactForm";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <FormsWrap />
+      <ContactForm />
       <SearchBox />
       <div>
         {isLoading && <Loader />}

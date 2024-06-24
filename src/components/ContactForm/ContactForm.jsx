@@ -10,8 +10,7 @@ import { FeedbackSchema } from "../../js/validation";
 import { handleKeyPress } from "../../js/handleKeyPress";
 
 const ContactForm = () => {
-  const nameFieldId = useId();
-  const phoneFieldId = useId();
+  const id = useId();
 
   const dispatch = useDispatch();
 
@@ -38,14 +37,14 @@ const ContactForm = () => {
       }}
     >
       <Form className={css.formContainer}>
-        <label htmlFor={nameFieldId} className={css.label}>
+        <label htmlFor={`${id}-n`} className={css.label}>
           Username
         </label>
         <div className={css.wrap}>
           <Field
             type="text"
             name="username"
-            id={nameFieldId}
+            id={`${id}-n`}
             className={css.inputField}
           />
           <ErrorMessage
@@ -55,7 +54,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <label htmlFor={phoneFieldId} className={css.label}>
+        <label htmlFor={`${id}-p`} className={css.label}>
           Phone
         </label>
         <div className={css.wrap}>
@@ -64,7 +63,7 @@ const ContactForm = () => {
             pattern="\d*"
             onKeyPress={handleKeyPress}
             name="number"
-            id={phoneFieldId}
+            id={`${id}-p`}
             className={css.inputField}
           />
           <ErrorMessage

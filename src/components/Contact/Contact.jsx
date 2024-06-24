@@ -1,27 +1,19 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { MdDeleteForever, MdModeEdit } from "react-icons/md";
 import { FaPhoneAlt, FaUser } from "react-icons/fa";
-import {
-  setActiveContact,
-  clearActiveContact,
-} from "../../redux/contacts/slice";
+import { setActiveContact } from "../../redux/contacts/slice";
 import css from "./Contact.module.css";
 import { Avatar, IconButton } from "@mui/material";
 import { stringAvatar } from "../../js/utils";
+import ModalEdit from "../ModalEdit/ModalEdit";
 
 const Contact = ({ contact, modalOpenDelete }) => {
   const dispatch = useDispatch();
 
   const { id, name, number } = contact;
 
-  const isModalOpen = useSelector((state) => state.contacts.isModalOpen);
-
   const handleEdit = () => {
-    if (!isModalOpen) {
-      dispatch(setActiveContact({ name, number, id }));
-    } else {
-      dispatch(clearActiveContact());
-    }
+    dispatch(setActiveContact({ name, number, id }));
   };
 
   const handleDelete = () => {
@@ -59,6 +51,7 @@ const Contact = ({ contact, modalOpenDelete }) => {
       >
         <MdDeleteForever className={css.bin} />
       </IconButton>
+      <ModalEdit />
     </div>
   );
 };
