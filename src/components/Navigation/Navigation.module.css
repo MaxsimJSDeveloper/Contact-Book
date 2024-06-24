@@ -1,10 +1,15 @@
+.nav {
+  display: flex;
+  gap: 64px;
+}
+
 .link {
   display: inline-block;
-  text-decoration: none;
-  padding: 12px;
-  font-weight: 700;
-  font-size: 20px;
-  color: #2a363b;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  line-height: 1.16667;
+  color: #fafafa;
 }
 
 .link:hover {

@@ -5,12 +5,12 @@ import { lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { RestrictedRoute } from "./components/RestrictedRoute";
-
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import Layout from "./components/Layout/Layout";
 import { Toaster } from "react-hot-toast";
-import { InfinitySpin } from "react-loader-spinner";
+
+import Layout from "./components/Layout/Layout";
+import Loader from "./components/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
@@ -29,14 +29,7 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div className="loader">
-      <InfinitySpin
-        visible={true}
-        width="200"
-        color="#00f2ff"
-        ariaLabel="infinity-spin-loading"
-      />
-    </div>
+    <Loader />
   ) : (
     <>
       <Routes>

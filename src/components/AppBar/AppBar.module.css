@@ -1,7 +1,28 @@
 .header {
+  margin: 0 auto; /* Центрируем по горизонтали */
+  margin-top: 40px;
+  margin-bottom: 72px;
+  padding: 10px 20px; /* Дополнительное пространство внутри хедера */
+  box-sizing: border-box; /* Учитываем padding в общей ширине */
+  max-width: 435px;
+  height: 56px;
+  border-radius: 16px;
+  width: 435px;
+  height: 56px;
+  background-color: #00778b;
+  opacity: 0.85;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #2a363b;
+  gap: 64px;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+  margin-right: 10px;
+}
+
+.link:hover {
+  text-decoration: underline;
 }

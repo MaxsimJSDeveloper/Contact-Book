@@ -9,6 +9,7 @@ import {
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
+import styles from "./ModalDelete.module.css";
 
 export default function ModalDelete({ open, close, id }) {
   const dispatch = useDispatch();
@@ -27,18 +28,38 @@ export default function ModalDelete({ open, close, id }) {
   };
 
   return (
-    <Dialog open={open} onClose={close}>
-      <DialogTitle>{"Confirm Deletion"}</DialogTitle>
+    <Dialog
+      open={open}
+      onClose={close}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+      PaperProps={{
+        className: styles.dialog,
+      }}
+    >
+      <DialogTitle id="alert-dialog-title" className={styles["dialog-title"]}>
+        {"Confirm Deletion"}
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText>
+        <DialogContentText id="alert-dialog-description">
           Are you sure you want to delete this contact?
         </DialogContentText>
       </DialogContent>
-      <DialogActions>
-        <Button onClick={close} color="primary">
+      <DialogActions className={styles["dialog-actions"]}>
+        <Button
+          onClick={close}
+          color="primary"
+          variant="outlined"
+          className={styles["cancel-button"]}
+        >
           Cancel
         </Button>
-        <Button onClick={handleDelete} color="primary" autoFocus>
+        <Button
+          onClick={handleDelete}
+          color="secondary"
+          variant="contained"
+          autoFocus
+        >
           Delete
         </Button>
       </DialogActions>

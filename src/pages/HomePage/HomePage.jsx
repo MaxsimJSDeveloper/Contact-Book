@@ -6,7 +6,7 @@ export default function Home() {
     <div className={css.global}>
       <div className={css.container}>
         <h1 className={css.title}>Welcome!</h1>
-        <p className={css.desc}>It's secure storage of your contacts</p>
+        <p className={css.desc}>It is secure storage of your contacts</p>
         <GiSecretBook className={css.icon} />
       </div>
       <div className={css.creators}>
