@@ -1,0 +1,14 @@
+.box {
+  display: flex;
+  position: absolute;
+  width: 90px;
+  height: 40px;
+  left: 5%;
+}
+
+.text {
+  font-size: 10px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #fafafa;
+}

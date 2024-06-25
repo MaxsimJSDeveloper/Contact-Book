@@ -8,18 +8,14 @@ export const regist = Yup.object().shape({
   email: Yup.string()
     .email("Please enter a valid email address")
     .required("Required"),
-  password: Yup.string()
-    .min(8, "Password must be at least 8 characters")
-    .required("Required"),
+  password: Yup.string().min(8, "Too Short!").required("Required"),
 });
 
 export const login = Yup.object().shape({
   email: Yup.string()
     .email("Please enter a valid email address")
     .required("Required"),
-  password: Yup.string()
-    .min(8, "Password must be at least 8 characters")
-    .required("Required"),
+  password: Yup.string().min(8, "Too Short!").required("Required"),
 });
 
 export const FeedbackSchema = Yup.object().shape({

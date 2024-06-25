@@ -107,12 +107,12 @@ const ModalEdit = () => {
               </label>
               <div className={css.wrap}>
                 <Field
-                  className={css.inputField}
                   type="text"
+                  pattern="\d*"
+                  onKeyPress={handleKeyPress}
                   name="number"
                   id={`${id}-p`}
-                  variant="outlined"
-                  inputProps={{ pattern: "\\d*", onKeyPress: handleKeyPress }}
+                  className={css.inputField}
                 />
                 <ErrorMessage
                   name="number"

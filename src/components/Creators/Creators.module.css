@@ -1,0 +1,22 @@
+.creators {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 90%;
+  left: 44%;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 12px;
+  color: #fafafa;
+}

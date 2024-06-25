@@ -9,11 +9,21 @@ const Navigation = () => {
 
   return (
     <nav className={css.nav}>
-      <NavLink className={css.link} to="/">
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? `${css.link} ${css.activeLink}` : css.link
+        }
+        to="/"
+      >
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.activeLink}` : css.link
+          }
+          to="/contacts"
+        >
           Contacts
         </NavLink>
       )}
