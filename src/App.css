@@ -7,7 +7,7 @@ body {
 
 @media (min-width: 850px) {
   body {
-    background: url("./img/bgImg.jpg");
+    background: url("/img/bgImg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }

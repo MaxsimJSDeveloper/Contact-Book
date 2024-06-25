@@ -3,7 +3,9 @@ import css from "./Logo.module.css";
 export const Logo = () => {
   return (
     <div className={css.box}>
-      <img src="/img/logo.png" />
+      <svg aria-label="logo">
+        <use href="../../img/symbol-defs.svg#icon-logo"></use>
+      </svg>
       <p className={css.text}>contact book</p>
     </div>
   );
