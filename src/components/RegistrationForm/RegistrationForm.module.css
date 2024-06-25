@@ -4,6 +4,8 @@
   padding: 40px;
   width: 570px;
   background-color: #d9ebee;
+  max-height: 442px;
+  margin-bottom: 35px;
 }
 
 .label {

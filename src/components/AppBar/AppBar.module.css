@@ -1,6 +1,6 @@
 .header {
   margin: 0 auto; /* Центрируем по горизонтали */
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 72px;
   padding: 10px 20px; /* Дополнительное пространство внутри хедера */
   box-sizing: border-box; /* Учитываем padding в общей ширине */

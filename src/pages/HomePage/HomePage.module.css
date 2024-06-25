@@ -3,11 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 68vh;
 }
 
 .container {
-  margin-top: auto;
+  margin-top: 7%;
   margin-bottom: auto;
 }
 
