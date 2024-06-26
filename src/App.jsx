@@ -11,7 +11,6 @@ import { Toaster } from "react-hot-toast";
 
 import Layout from "./components/Layout/Layout";
 import Loader from "./components/Loader/Loader";
-import Creators from "./components/Creators/Creators";
 import Logo from "./components/Logo/Logo";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -65,7 +64,6 @@ function App() {
         </Route>
       </Routes>
       <Toaster position="top-center" reverseOrder={false} />
-      <Creators />
     </>
   );
 }

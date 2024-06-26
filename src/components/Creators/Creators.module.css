@@ -3,14 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 92%;
+  left: 44%;
 }
 
 .title {
   font-weight: 600;
   font-size: 14px;
   color: #fafafa;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .text {

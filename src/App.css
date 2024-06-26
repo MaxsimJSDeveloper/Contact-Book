@@ -5,24 +5,15 @@ body {
   background-color: #f0f0f0;
   background: url("/img/bgImg.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
+  min-height: 100%;
 }
 
 @media (min-width: 850px) {
   body {
     background: url("/img/bgImg.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
   }
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
