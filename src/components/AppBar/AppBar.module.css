@@ -3,10 +3,8 @@
   margin-top: 30px;
   margin-bottom: 72px;
   padding: 10px 20px; /* Дополнительное пространство внутри хедера */
-  box-sizing: border-box; /* Учитываем padding в общей ширине */
   max-width: 435px;
   border-radius: 16px;
-  width: 435px;
   height: 56px;
   background-color: #00778b;
   opacity: 0.85;
