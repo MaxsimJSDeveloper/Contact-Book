@@ -38,7 +38,7 @@ const RegistrationForm = () => {
       }}
     >
       <Form className={css.formContainer}>
-        <label htmlFor={nameFieldId} className={css.label}>
+        <label htmlFor={nameFieldId}>
           Name
         </label>
         <div className={css.wrap}>
@@ -54,7 +54,7 @@ const RegistrationForm = () => {
             className={css.errorMessage}
           />
         </div>
-        <label htmlFor={mailFieldId} className={css.label}>
+        <label htmlFor={mailFieldId}>
           Email
         </label>
         <div className={css.wrap}>
@@ -70,7 +70,7 @@ const RegistrationForm = () => {
             className={css.errorMessage}
           />
         </div>
-        <label htmlFor={passwordFieldId} className={css.label}>
+        <label htmlFor={passwordFieldId}>
           Password
         </label>
         <div className={css.wrap}>

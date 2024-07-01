@@ -37,9 +37,7 @@ const LoginForm = () => {
       }}
     >
       <Form className={css.formContainer}>
-        <label htmlFor={mailFieldId} className={css.label}>
-          Email
-        </label>
+        <label htmlFor={mailFieldId}>Email</label>
         <div className={css.wrap}>
           <Field
             type="email"
@@ -54,9 +52,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <label htmlFor={passwordFieldId} className={css.label}>
-          Password
-        </label>
+        <label htmlFor={passwordFieldId}>Password</label>
         <div className={css.wrap}>
           <Field
             type="password"

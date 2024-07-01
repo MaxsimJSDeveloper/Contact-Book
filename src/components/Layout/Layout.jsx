@@ -4,11 +4,9 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
-import css from "./Layout.module.css";
-
 const Layout = () => {
   return (
-    <div className={css.container}>
+    <div>
       <AppBar />
       <Suspense fallback={null}>
         <Outlet />

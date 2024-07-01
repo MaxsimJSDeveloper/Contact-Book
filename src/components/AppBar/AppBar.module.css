@@ -1,8 +1,8 @@
 .header {
-  margin: 0 auto; /* Центрируем по горизонтали */
+  margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 72px;
-  padding: 10px 20px; /* Дополнительное пространство внутри хедера */
+  padding: 10px 20px;
   max-width: 435px;
   border-radius: 16px;
   height: 56px;
@@ -12,14 +12,4 @@
   justify-content: center;
   align-items: center;
   gap: 64px;
-}
-
-.link {
-  text-decoration: none;
-  color: #000;
-  margin-right: 10px;
-}
-
-.link:hover {
-  text-decoration: underline;
 }
