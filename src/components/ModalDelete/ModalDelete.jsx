@@ -7,8 +7,9 @@ import {
   DialogTitle,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
+
+import { deleteContact } from "../../redux/contacts/operations";
 import styles from "./ModalDelete.module.css";
 
 export default function ModalDelete({ open, close, id }) {
@@ -48,7 +49,7 @@ export default function ModalDelete({ open, close, id }) {
       <DialogActions className={styles["dialog-actions"]}>
         <Button
           onClick={close}
-          color="primary"
+          style={{ borderColor: "#00778b", color: "#00778b" }}
           variant="outlined"
           className={styles["cancel-button"]}
         >
@@ -56,7 +57,7 @@ export default function ModalDelete({ open, close, id }) {
         </Button>
         <Button
           onClick={handleDelete}
-          color="secondary"
+          style={{ backgroundColor: "#00778b" }}
           variant="contained"
           autoFocus
         >

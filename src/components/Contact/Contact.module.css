@@ -18,6 +18,7 @@
 .data {
   display: flex;
   flex-direction: column;
+  margin-right: auto;
   gap: 12px;
 }
 
@@ -27,7 +28,6 @@
 }
 
 .button {
-  cursor: pointer;
   border: none;
   background-color: inherit;
 }
@@ -57,8 +57,4 @@
 
 .bin:hover {
   fill: #a90006;
-}
-
-.data {
-  margin-right: auto;
 }

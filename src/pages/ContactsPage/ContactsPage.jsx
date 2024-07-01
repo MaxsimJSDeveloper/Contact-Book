@@ -11,6 +11,7 @@ import {
 import SearchBox from "../../components/SearchBox/SearchBox";
 import Loader from "../../components/Loader/Loader";
 import ContactForm from "../../components/ContactForm/ContactForm";
+import Logo from "../../components/Logo/Logo";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export default function Contacts() {
 
   return (
     <>
+      <Logo />
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
