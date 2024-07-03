@@ -13,3 +13,11 @@
   align-items: center;
   gap: 64px;
 }
+
+.loggedIn {
+  max-width: 300px;
+}
+
+.loggedOut {
+  max-width: 435px;
+}

@@ -12,6 +12,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import Loader from "../../components/Loader/Loader";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Logo from "../../components/Logo/Logo";
+import { UserMenu } from "../../components/UserMenu/UserMenu";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ export default function Contacts() {
         {error && "Error! Try again"}
       </div>
       <ContactList contacts={contacts} />
+      <UserMenu />
     </>
   );
 }

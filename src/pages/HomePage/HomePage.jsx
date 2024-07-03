@@ -13,7 +13,9 @@ export default function Home() {
       <div className={css.container}>
         <h1 className={css.title}>Welcome {user.name}!</h1>
         {user.name ? (
-          <p className={css.desc}>Here you can add and find your contacts</p>
+          <p className={css.desc}>
+            Here you can add, edit and find your contacts
+          </p>
         ) : (
           <p className={css.desc}>It is secure storage of your contacts</p>
         )}
