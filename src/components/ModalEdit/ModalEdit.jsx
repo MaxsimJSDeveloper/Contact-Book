@@ -72,6 +72,13 @@ const ModalEdit = () => {
           backgroundColor: "rgba(0, 0, 0, 0.1)",
         },
       }}
+      PaperProps={{
+        sx: {
+          borderRadius: "24px",
+          minWidth: "334px",
+          padding: 0,
+        },
+      }}
     >
       <DialogContent className={css.cont}>
         <DialogContentText className={css.title}>
