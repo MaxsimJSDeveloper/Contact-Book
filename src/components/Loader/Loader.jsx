@@ -1,6 +1,6 @@
 import { InfinitySpin } from "react-loader-spinner";
 
-export const Loader = () => {
+const Loader = () => {
   return (
     <InfinitySpin
       visible={true}

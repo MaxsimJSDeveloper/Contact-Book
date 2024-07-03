@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 import { deleteContact } from "../../redux/contacts/operations";
 import styles from "./ModalDelete.module.css";
 
-export default function ModalDelete({ open, close, id }) {
+const ModalDelete = ({ open, close, id }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
     close();
@@ -35,9 +35,11 @@ export default function ModalDelete({ open, close, id }) {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
       PaperProps={{
+        sx: {
+          borderRadius: "24px",
+        },
         className: styles.dialog,
       }}
-      style={{ borderRadius: "24" }}
     >
       <DialogTitle id="alert-dialog-title" className={styles["dialog-title"]}>
         {"Confirm Deletion"}
@@ -52,7 +54,6 @@ export default function ModalDelete({ open, close, id }) {
           onClick={close}
           style={{ borderColor: "#00778b", color: "#00778b" }}
           variant="outlined"
-          className={styles["cancel-button"]}
         >
           Cancel
         </Button>
@@ -67,4 +68,6 @@ export default function ModalDelete({ open, close, id }) {
       </DialogActions>
     </Dialog>
   );
-}
+};
+
+export default ModalDelete;
