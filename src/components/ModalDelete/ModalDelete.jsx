@@ -37,6 +37,7 @@ export default function ModalDelete({ open, close, id }) {
       PaperProps={{
         className: styles.dialog,
       }}
+      style={{ borderRadius: "24" }}
     >
       <DialogTitle id="alert-dialog-title" className={styles["dialog-title"]}>
         {"Confirm Deletion"}
