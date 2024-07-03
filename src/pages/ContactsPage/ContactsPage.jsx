@@ -8,11 +8,13 @@ import {
   selectError,
   selectIsLoading,
 } from "../../redux/contacts/selectors";
-import SearchBox from "../../components/SearchBox/SearchBox";
+
 import Loader from "../../components/Loader/Loader";
-import ContactForm from "../../components/ContactForm/ContactForm";
 import Logo from "../../components/Logo/Logo";
 import { UserMenu } from "../../components/UserMenu/UserMenu";
+
+import css from "./ContactsPage.module.css";
+import ContactFormWrap from "../../components/ContactFormWrap/ContactFormWrap";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -31,14 +33,15 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <ContactForm />
-      <SearchBox />
-      <div>
-        {isLoading && <Loader />}
-        {error && "Error! Try again"}
-      </div>
-      <ContactList contacts={contacts} />
-      <UserMenu />
+      <main className={css.container}>
+        <div>
+          {isLoading && <Loader />}
+          {error && "Error! Try again"}
+        </div>
+        <ContactList contacts={contacts} />
+        <ContactFormWrap />
+        <UserMenu />
+      </main>
     </>
   );
 }

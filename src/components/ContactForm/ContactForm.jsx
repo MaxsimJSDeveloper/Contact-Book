@@ -38,9 +38,7 @@ const ContactForm = () => {
       }}
     >
       <Form className={css.formContainer}>
-        <label htmlFor={`${id}-n`} className={css.label}>
-          Username
-        </label>
+        <label htmlFor={`${id}-n`}>Username</label>
         <div className={css.wrap}>
           <Field
             type="text"
@@ -55,9 +53,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <label htmlFor={`${id}-p`} className={css.label}>
-          Phone
-        </label>
+        <label htmlFor={`${id}-p`}>Phone</label>
         <div className={css.wrap}>
           <Field
             type="text"

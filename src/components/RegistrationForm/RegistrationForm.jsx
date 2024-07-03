@@ -10,9 +10,7 @@ import { regist } from "../../js/validation";
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
-  const nameFieldId = useId();
-  const mailFieldId = useId();
-  const passwordFieldId = useId();
+  const id = useId();
 
   return (
     <Formik
@@ -38,14 +36,12 @@ const RegistrationForm = () => {
       }}
     >
       <Form className={css.formContainer}>
-        <label htmlFor={nameFieldId}>
-          Name
-        </label>
+        <label htmlFor={`${id}-n`}>Name</label>
         <div className={css.wrap}>
           <Field
             type="text"
             name="name"
-            id={nameFieldId}
+            id={`${id}-n`}
             className={css.inputField}
           />
           <ErrorMessage
@@ -54,14 +50,12 @@ const RegistrationForm = () => {
             className={css.errorMessage}
           />
         </div>
-        <label htmlFor={mailFieldId}>
-          Email
-        </label>
+        <label htmlFor={`${id}-e`}>Email</label>
         <div className={css.wrap}>
           <Field
             type="email"
             name="email"
-            id={mailFieldId}
+            id={`${id}-e`}
             className={css.inputField}
           />
           <ErrorMessage
@@ -70,14 +64,12 @@ const RegistrationForm = () => {
             className={css.errorMessage}
           />
         </div>
-        <label htmlFor={passwordFieldId}>
-          Password
-        </label>
+        <label htmlFor={`${id}-p`}>Password</label>
         <div className={css.wrap}>
           <Field
             type="password"
             name="password"
-            id={passwordFieldId}
+            id={`${id}-p`}
             className={css.inputField}
           />
           <ErrorMessage
