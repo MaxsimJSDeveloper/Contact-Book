@@ -3,13 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
 import ContactList from "../../components/ContactList/ContactList";
 import { Helmet } from "react-helmet";
-import {
-  selectContacts,
-  selectError,
-  selectIsLoading,
-} from "../../redux/contacts/selectors";
+import { selectContacts, selectError } from "../../redux/contacts/selectors";
 
-import Loader from "../../components/Loader/Loader";
 import Logo from "../../components/Logo/Logo";
 import { UserMenu } from "../../components/UserMenu/UserMenu";
 
@@ -20,7 +15,6 @@ export default function Contacts() {
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {
@@ -34,10 +28,8 @@ export default function Contacts() {
         <title>Your contacts</title>
       </Helmet>
       <main className={css.container}>
-        <div>
-          {isLoading && <Loader />}
-          {error && "Error! Try again"}
-        </div>
+        {error && "Error! Try again"}
+
         <ContactList contacts={contacts} />
         <ContactFormWrap />
         <UserMenu />

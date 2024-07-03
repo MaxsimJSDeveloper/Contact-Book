@@ -1,16 +1,3 @@
-.contact {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  background-color: #dadada;
-  border-radius: 12px;
-  height: 80px;
-}
-
-.contact:hover {
-  background-color: #d3d3d3;
-}
-
 .avatar {
   margin-right: 15px;
 }
@@ -23,36 +10,29 @@
 }
 
 .info {
-  color: #333;
+  font-size: 18px;
+  color: #00242a;
+}
+
+.number {
   font-size: 16px;
-}
-
-.button {
-  border: none;
-  background-color: inherit;
-}
-
-.infoIcon {
-  fill: #2a5cd1;
-  margin-right: 5px;
-  width: 18px;
-  height: 18px;
+  color: #00778b;
 }
 
 .bin {
-  width: 36px;
-  height: 36px;
-  fill: #dc0007;
+  width: 34px;
+  height: 34px;
+  fill: #b31818;
 }
 
 .pencil {
-  width: 36px;
-  height: 36px;
-  fill: #0080dc;
+  width: 34px;
+  height: 34px;
+  fill: #00778b;
 }
 
 .pencil:hover {
-  fill: #005089;
+  fill: #006c7e;
 }
 
 .bin:hover {

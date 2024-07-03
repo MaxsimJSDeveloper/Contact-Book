@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
-import { MdDeleteForever, MdModeEdit } from "react-icons/md";
-import { FaPhoneAlt, FaUser } from "react-icons/fa";
+import { BsTrash, BsPencilSquare } from "react-icons/bs";
 import { setActiveContact } from "../../redux/contacts/slice";
-import css from "./Contact.module.css";
+
 import { Avatar, IconButton } from "@mui/material";
 import { stringAvatar } from "../../js/utils";
 import ModalEdit from "../ModalEdit/ModalEdit";
+
+import css from "./Contact.module.css";
 
 const Contact = ({ contact, modalOpenDelete }) => {
   const dispatch = useDispatch();
@@ -21,38 +22,34 @@ const Contact = ({ contact, modalOpenDelete }) => {
   };
 
   return (
-    <div className={css.contact}>
+    <>
       <Avatar
         {...stringAvatar(contact.name)}
         className={css.avatar}
-        sx={{ width: 58, height: 58, ...stringAvatar(contact.name).sx }}
+        sx={{ width: 74, height: 74, ...stringAvatar(contact.name).sx }}
       />
       <div className={css.data}>
-        <p className={css.info}>
-          <FaUser className={css.infoIcon} /> {name}
-        </p>
-        <p className={css.info}>
-          <FaPhoneAlt className={css.infoIcon} /> {number}
-        </p>
+        <p className={css.info}> {name}</p>
+        <p className={css.number}> {number}</p>
       </div>
       <IconButton
         variant="outlined"
         type="button"
-        style={{ padding: "5px" }}
+        style={{ padding: "12px" }}
         onClick={handleEdit}
       >
-        <MdModeEdit className={css.pencil} />
+        <BsPencilSquare className={css.pencil} />
       </IconButton>
       <IconButton
         variant="outlined"
         type="button"
-        style={{ padding: "5px" }}
+        style={{ padding: "12px" }}
         onClick={handleDelete}
       >
-        <MdDeleteForever className={css.bin} />
+        <BsTrash className={css.bin} />
       </IconButton>
       <ModalEdit />
-    </div>
+    </>
   );
 };
 
