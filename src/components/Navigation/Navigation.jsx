@@ -4,16 +4,19 @@ import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 import css from "./Navigation.module.css";
 
-const Navigation = () => {
+const Navigation = ({ onLinkClick }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <nav className={css.nav}>
       <NavLink
         className={({ isActive }) =>
-          isActive ? `${css.link} ${css.activeLink}` : css.link
+          isActive
+            ? `${css.link} ${css.activeLink} ${css.homeLink}`
+            : `${css.link} ${css.homeLink}`
         }
         to="/"
+        onClick={onLinkClick}
       >
         Home
       </NavLink>
@@ -23,6 +26,7 @@ const Navigation = () => {
             isActive ? `${css.link} ${css.activeLink}` : css.link
           }
           to="/contacts"
+          onClick={onLinkClick}
         >
           Contacts
         </NavLink>

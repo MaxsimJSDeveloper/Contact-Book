@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import css from "./AuthNav.module.css";
 
-const AuthNav = () => {
+const AuthNav = ({ onLinkClick }) => {
   return (
     <div className={css.box}>
       <NavLink
@@ -9,6 +9,7 @@ const AuthNav = () => {
           isActive ? `${css.link} ${css.activeLink}` : css.link
         }
         to="/register"
+        onClick={onLinkClick}
       >
         Register
       </NavLink>
@@ -17,6 +18,7 @@ const AuthNav = () => {
           isActive ? `${css.link} ${css.activeLink}` : css.link
         }
         to="/login"
+        onClick={onLinkClick}
       >
         Log In
       </NavLink>
