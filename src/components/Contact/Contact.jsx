@@ -26,7 +26,12 @@ const Contact = ({ contact, modalOpenDelete }) => {
       <Avatar
         {...stringAvatar(contact.name)}
         className={css.avatar}
-        sx={{ width: 74, height: 74, ...stringAvatar(contact.name).sx }}
+        sx={{
+          width: 74,
+          height: 74,
+          fontSize: 24,
+          ...stringAvatar(contact.name).sx,
+        }}
       />
       <div className={css.data}>
         <p className={css.info}> {name}</p>
