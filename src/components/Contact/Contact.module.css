@@ -1,5 +1,5 @@
 .avatar {
-  margin-right: 15px;
+  margin-right: 14px;
 }
 
 .data {
@@ -10,24 +10,24 @@
 }
 
 .info {
-  font-size: 18px;
+  font-size: 14px;
   color: #00242a;
 }
 
 .number {
-  font-size: 16px;
+  font-size: 14px;
   color: #00778b;
 }
 
 .bin {
-  width: 34px;
-  height: 34px;
+  width: 26px;
+  height: 26px;
   fill: #b31818;
 }
 
 .pencil {
-  width: 34px;
-  height: 34px;
+  width: 26px;
+  height: 26px;
   fill: #00778b;
 }
 

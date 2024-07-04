@@ -4,7 +4,7 @@
   gap: 12px;
   position: absolute;
   top: 6%;
-  left: 90%;
+  left: 80%;
 }
 
 .button {
@@ -19,4 +19,11 @@
 
 .button:hover {
   background-color: #841c1c;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    top: 6%;
+    left: 90%;
+  }
 }

@@ -27,9 +27,9 @@ const Contact = ({ contact, modalOpenDelete }) => {
         {...stringAvatar(contact.name)}
         className={css.avatar}
         sx={{
-          width: 74,
-          height: 74,
-          fontSize: 24,
+          width: 62,
+          height: 62,
+          fontSize: 20,
           ...stringAvatar(contact.name).sx,
         }}
       />
@@ -40,7 +40,7 @@ const Contact = ({ contact, modalOpenDelete }) => {
       <IconButton
         variant="outlined"
         type="button"
-        style={{ padding: "12px" }}
+        style={{ padding: "8px" }}
         onClick={handleEdit}
       >
         <BsPencilSquare className={css.pencil} />
@@ -48,7 +48,7 @@ const Contact = ({ contact, modalOpenDelete }) => {
       <IconButton
         variant="outlined"
         type="button"
-        style={{ padding: "12px" }}
+        style={{ padding: "8px" }}
         onClick={handleDelete}
       >
         <BsTrash className={css.bin} />
