@@ -21,16 +21,6 @@
   height: 50px;
 }
 
-.wrap {
-  height: 24px;
-}
-
-.errorMessage {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
-}
-
 .btnWrap {
   display: flex;
   justify-content: flex-end;

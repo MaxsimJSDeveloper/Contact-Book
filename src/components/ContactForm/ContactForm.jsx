@@ -1,5 +1,3 @@
-import css from "./ContactForm.module.css";
-
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useId } from "react";
 import { useDispatch } from "react-redux";
@@ -9,6 +7,9 @@ import toast from "react-hot-toast";
 import { addContact } from "../../redux/contacts/operations";
 import { FeedbackSchema } from "../../js/validation";
 import { handleKeyPress } from "../../js/handleKeyPress";
+
+import styles from "../formStyles/massage.module.css";
+import css from "./ContactForm.module.css";
 
 const ContactForm = () => {
   const id = useId();
@@ -45,11 +46,11 @@ const ContactForm = () => {
           id={`${id}-n`}
           className={css.inputField}
         />
-        <div className={css.wrap}>
+        <div className={styles.wrap}>
           <ErrorMessage
             name="username"
             component="span"
-            className={css.errorMessage}
+            className={styles.errorMessage}
           />
         </div>
 
@@ -62,11 +63,11 @@ const ContactForm = () => {
           id={`${id}-p`}
           className={css.inputField}
         />
-        <div className={css.wrap}>
+        <div className={styles.wrap}>
           <ErrorMessage
             name="number"
             component="span"
-            className={css.errorMessage}
+            className={styles.errorMessage}
           />
         </div>
 

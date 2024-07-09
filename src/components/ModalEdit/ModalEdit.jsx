@@ -15,6 +15,7 @@ import { FeedbackSchema } from "../../js/validation";
 import { handleKeyPress } from "../../js/handleKeyPress";
 
 import css from "./ModalEdit.module.css";
+import styles from "../formStyles/massage.module.css";
 
 const ModalEdit = () => {
   const dispatch = useDispatch();
@@ -89,11 +90,11 @@ const ModalEdit = () => {
             id={`${id}-n`}
             variant="outlined"
           />
-          <div className={css.wrap}>
+          <div className={styles.wrap}>
             <ErrorMessage
               name="username"
               component="div"
-              className={css.errorMessage}
+              className={styles.errorMessage}
             />
           </div>
 
@@ -108,11 +109,11 @@ const ModalEdit = () => {
             id={`${id}-p`}
             className={css.inputField}
           />
-          <div className={css.wrap}>
+          <div className={styles.wrap}>
             <ErrorMessage
               name="number"
               component="div"
-              className={css.errorMessage}
+              className={styles.errorMessage}
             />
           </div>
 

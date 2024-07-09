@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
-import css from "./RegistrationForm.module.css";
 
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useId } from "react";
 import toast from "react-hot-toast";
 import { regist } from "../../js/validation";
+
+import styles from "../formStyles/massage.module.css";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -35,50 +36,50 @@ const RegistrationForm = () => {
         actions.resetForm();
       }}
     >
-      <Form className={css.formContainer}>
+      <Form className={styles.formContainer}>
         <label htmlFor={`${id}-n`}>Name</label>
-        <div className={css.wrap}>
-          <Field
-            type="text"
-            name="name"
-            id={`${id}-n`}
-            className={css.inputField}
-          />
+        <Field
+          type="text"
+          name="name"
+          id={`${id}-n`}
+          className={styles.inputField}
+        />
+        <div className={styles.wrap}>
           <ErrorMessage
             name="name"
             component="span"
-            className={css.errorMessage}
+            className={styles.errorMessage}
           />
         </div>
         <label htmlFor={`${id}-e`}>Email</label>
-        <div className={css.wrap}>
-          <Field
-            type="email"
-            name="email"
-            id={`${id}-e`}
-            className={css.inputField}
-          />
+        <Field
+          type="email"
+          name="email"
+          id={`${id}-e`}
+          className={styles.inputField}
+        />
+        <div className={styles.wrap}>
           <ErrorMessage
             name="email"
             component="span"
-            className={css.errorMessage}
+            className={styles.errorMessage}
           />
         </div>
         <label htmlFor={`${id}-p`}>Password</label>
-        <div className={css.wrap}>
-          <Field
-            type="password"
-            name="password"
-            id={`${id}-p`}
-            className={css.inputField}
-          />
+        <Field
+          type="password"
+          name="password"
+          id={`${id}-p`}
+          className={styles.inputField}
+        />
+        <div className={styles.wrap}>
           <ErrorMessage
             name="password"
             component="span"
-            className={css.errorMessage}
+            className={styles.errorMessage}
           />
         </div>
-        <button type="submit" className={css.submitButton}>
+        <button type="submit" className={styles.submitButton}>
           Register
         </button>
       </Form>

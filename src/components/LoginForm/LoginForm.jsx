@@ -1,12 +1,13 @@
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
-import css from "./LoginForm.module.css";
 
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useId } from "react";
 
 import toast from "react-hot-toast";
 import { login } from "../../js/validation";
+
+import styles from "../formStyles/massage.module.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -36,38 +37,38 @@ const LoginForm = () => {
         actions.resetForm();
       }}
     >
-      <Form className={css.formContainer}>
+      <Form className={styles.formContainer}>
         <label htmlFor={mailFieldId}>Email</label>
-        <div className={css.wrap}>
-          <Field
-            type="email"
-            name="email"
-            id={mailFieldId}
-            className={css.inputField}
-          />
+        <Field
+          type="email"
+          name="email"
+          id={mailFieldId}
+          className={styles.inputField}
+        />
+        <div className={styles.wrap}>
           <ErrorMessage
             name="email"
             component="span"
-            className={css.errorMessage}
+            className={styles.errorMessage}
           />
         </div>
 
         <label htmlFor={passwordFieldId}>Password</label>
-        <div className={css.wrap}>
-          <Field
-            type="password"
-            name="password"
-            id={passwordFieldId}
-            className={css.inputField}
-          />
+        <Field
+          type="password"
+          name="password"
+          id={passwordFieldId}
+          className={styles.inputField}
+        />
+        <div className={styles.wrap}>
           <ErrorMessage
             name="password"
             component="span"
-            className={css.errorMessage}
+            className={styles.errorMessage}
           />
         </div>
 
-        <button type="submit" className={css.submitButton}>
+        <button type="submit" className={styles.submitButton}>
           Log In
         </button>
       </Form>
