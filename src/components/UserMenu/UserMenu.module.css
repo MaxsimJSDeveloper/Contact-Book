@@ -4,26 +4,18 @@
   gap: 12px;
   position: absolute;
   top: 6%;
-  left: 80%;
+  left: 86%;
 }
 
 .button {
-  display: block;
-  padding: 10px;
-  background-color: #c52c2c;
-  color: #fff;
+  border-radius: 8px;
+  padding: 12px 24px;
+  width: 124px;
+  height: 40px;
+  background-color: #b31818;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 .button:hover {
   background-color: #841c1c;
-}
-
-@media (min-width: 768px) {
-  .wrapper {
-    top: 6%;
-    left: 90%;
-  }
 }

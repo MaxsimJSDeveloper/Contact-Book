@@ -11,42 +11,35 @@
 
 .modal {
   background-color: white;
-  padding: 15px;
-  border-radius: 10px;
+  padding: 14px 18px;
   display: flex;
   align-items: center;
-  width: 300px;
   height: 63px;
 }
 
 .out {
   font-size: 22px;
-  color: #00242a;
   margin-right: 24px;
 }
 
 .btnWrap {
   display: flex;
-  gap: 20px;
+  gap: 10px;
+}
+
+.btn {
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 12px;
 }
 
 .close {
   border: 1px solid #00778b;
-  border-radius: 10px;
-  padding: 10px 18px;
-  width: 85px;
-  height: 35px;
-  font-size: 12px;
   color: #00778b;
 }
 
 .approved {
   border: none;
-  border-radius: 10px;
-  padding: 10px 18px;
-  width: 53px;
-  height: 35px;
-  background: #00778b;
-  font-size: 12px;
+  background-color: #00778b;
   color: #f5f5f5;
 }

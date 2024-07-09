@@ -18,11 +18,11 @@ const ModalLogout = ({ isOpen, onClose }) => {
       <div className={css.modal}>
         <p className={css.out}>Log out?</p>
         <div className={css.btnWrap}>
-          <button className={css.close} onClick={onClose}>
+          <button className={`${css.btn} ${css.close}`} onClick={onClose}>
             CANCEL
           </button>
           <button
-            className={css.approved}
+            className={`${css.btn} ${css.approved}`}
             onClick={() => {
               dispatch(logOut());
               onClose();
