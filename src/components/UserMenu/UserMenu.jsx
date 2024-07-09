@@ -16,7 +16,7 @@ export const UserMenu = () => {
   return (
     <div className={css.wrapper}>
       <button onClick={handleClickOpen} className={css.button} type="button">
-        Logout
+        Log out
       </button>
       <ModalLogout isOpen={isOpen} onClose={handleClickClose} />
     </div>
