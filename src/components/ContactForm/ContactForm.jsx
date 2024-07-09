@@ -39,13 +39,13 @@ const ContactForm = () => {
     >
       <Form className={css.formContainer}>
         <label htmlFor={`${id}-n`}>Username</label>
+        <Field
+          type="text"
+          name="username"
+          id={`${id}-n`}
+          className={css.inputField}
+        />
         <div className={css.wrap}>
-          <Field
-            type="text"
-            name="username"
-            id={`${id}-n`}
-            className={css.inputField}
-          />
           <ErrorMessage
             name="username"
             component="span"
@@ -54,15 +54,15 @@ const ContactForm = () => {
         </div>
 
         <label htmlFor={`${id}-p`}>Phone</label>
+        <Field
+          type="text"
+          pattern="\d*"
+          onKeyPress={handleKeyPress}
+          name="number"
+          id={`${id}-p`}
+          className={css.inputField}
+        />
         <div className={css.wrap}>
-          <Field
-            type="text"
-            pattern="\d*"
-            onKeyPress={handleKeyPress}
-            name="number"
-            id={`${id}-p`}
-            className={css.inputField}
-          />
           <ErrorMessage
             name="number"
             component="span"

@@ -2,8 +2,7 @@
   border-radius: 28px;
   padding: 40px;
   background-color: #d9ebee;
-  width: 334px;
-  height: 324px;
+  width: 332px;
 }
 
 .inputField {
@@ -16,8 +15,7 @@
 }
 
 .wrap {
-  height: 60px;
-  margin-bottom: 24px;
+  height: 24px;
 }
 
 .errorMessage {
@@ -28,7 +26,7 @@
 
 .submitButton {
   display: block;
-  margin-top: 12px;
+  margin-top: 8px;
   width: 100%;
   padding: 16px 0;
   background-color: #00778b;

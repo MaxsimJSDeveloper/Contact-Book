@@ -7,9 +7,9 @@
 
 @media (min-width: 995px) {
   .wrap {
-    max-width: 335px;
+    max-width: 332px;
     position: fixed;
-    top: 23%;
+    top: 22.5%;
     left: 72%;
   }
 }

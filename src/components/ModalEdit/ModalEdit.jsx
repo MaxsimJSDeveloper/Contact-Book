@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-} from "@mui/material";
+import { Dialog } from "@mui/material";
 import toast from "react-hot-toast";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
@@ -74,75 +67,68 @@ const ModalEdit = () => {
       }}
       PaperProps={{
         sx: {
-          borderRadius: "24px",
-          minWidth: "334px",
+          borderRadius: "28px",
+          width: "447px",
           padding: 0,
         },
       }}
     >
-      <DialogContent className={css.cont}>
-        <DialogContentText className={css.title}>
-          Edit contact
-        </DialogContentText>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={FeedbackSchema}
-          onSubmit={handleSubmit}
-        >
-          <Form className={css.formContainer}>
-            <Box className={css.box}>
-              <label className={css.label} htmlFor={`${id}-n`}>
-                Username
-              </label>
-              <div className={css.wrap}>
-                <Field
-                  className={css.inputField}
-                  type="text"
-                  name="username"
-                  id={`${id}-n`}
-                  variant="outlined"
-                />
-                <ErrorMessage
-                  name="username"
-                  component="div"
-                  className={css.errorMessage}
-                />
-              </div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={FeedbackSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form className={css.formContainer}>
+          <label className={css.label} htmlFor={`${id}-n`}>
+            Username
+          </label>
+          <Field
+            className={css.inputField}
+            type="text"
+            name="username"
+            id={`${id}-n`}
+            variant="outlined"
+          />
+          <div className={css.wrap}>
+            <ErrorMessage
+              name="username"
+              component="div"
+              className={css.errorMessage}
+            />
+          </div>
 
-              <label className={css.label} htmlFor={`${id}-p`}>
-                Phone
-              </label>
-              <div className={css.wrap}>
-                <Field
-                  type="text"
-                  pattern="\d*"
-                  onKeyPress={handleKeyPress}
-                  name="number"
-                  id={`${id}-p`}
-                  className={css.inputField}
-                />
-                <ErrorMessage
-                  name="number"
-                  component="div"
-                  className={css.errorMessage}
-                />
-              </div>
+          <label className={css.label} htmlFor={`${id}-p`}>
+            Phone
+          </label>
+          <Field
+            type="text"
+            pattern="\d*"
+            onKeyPress={handleKeyPress}
+            name="number"
+            id={`${id}-p`}
+            className={css.inputField}
+          />
+          <div className={css.wrap}>
+            <ErrorMessage
+              name="number"
+              component="div"
+              className={css.errorMessage}
+            />
+          </div>
 
-              <DialogActions>
-                <Button
-                  onClick={() => dispatch(clearActiveContact())}
-                  color="primary"
-                >
-                  Cancel
-                </Button>
-                <Button type="submit" color="primary">
-                  Save
-                </Button>
-              </DialogActions>
-            </Box>
-          </Form>
-        </Formik>
-      </DialogContent>
+          <div className={css.btnWrap}>
+            <button
+              onClick={() => dispatch(clearActiveContact())}
+              className={`${css.btn} ${css.close}`}
+            >
+              Cancel
+            </button>
+            <button type="submit" className={`${css.btn} ${css.approved}`}>
+              Save
+            </button>
+          </div>
+        </Form>
+      </Formik>
     </Dialog>
   );
 };
