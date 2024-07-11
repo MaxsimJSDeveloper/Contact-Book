@@ -1,8 +1,8 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
+import toast from "react-hot-toast";
+
 import { useId } from "react";
 import { useDispatch } from "react-redux";
-
-import toast from "react-hot-toast";
 
 import { addContact } from "../../redux/contacts/operations";
 import { FeedbackSchema } from "../../js/validation";
@@ -22,8 +22,8 @@ const ContactForm = () => {
       validationSchema={FeedbackSchema}
       onSubmit={(values, actions) => {
         const newContact = {
-          name: values.username,
-          number: values.number,
+          name: values.username.trim(),
+          number: values.number.trim(),
         };
         dispatch(addContact(newContact))
           .unwrap()

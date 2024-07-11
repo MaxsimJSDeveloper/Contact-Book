@@ -19,9 +19,9 @@ const RegistrationForm = () => {
       validationSchema={regist}
       onSubmit={(values, actions) => {
         const newUser = {
-          name: values.name,
-          email: values.email,
-          password: values.password,
+          name: values.name.trim(),
+          email: values.email.trim(),
+          password: values.password.trim(),
         };
         dispatch(register(newUser))
           .unwrap()

@@ -6,11 +6,12 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
-import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 
+import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
-import styles from "./ModalDelete.module.css";
+
+import css from "./ModalDelete.module.css";
 
 const ModalDelete = ({ open, close, id }) => {
   const dispatch = useDispatch();
@@ -38,18 +39,16 @@ const ModalDelete = ({ open, close, id }) => {
         sx: {
           borderRadius: "24px",
         },
-        className: styles.dialog,
+        className: css.dialog,
       }}
     >
-      <DialogTitle id="alert-dialog-title" className={styles["dialog-title"]}>
-        {"Confirm Deletion"}
-      </DialogTitle>
+      <DialogTitle id="alert-dialog-title">{"Confirm Deletion"}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
           Are you sure you want to delete this contact?
         </DialogContentText>
       </DialogContent>
-      <DialogActions className={styles["dialog-actions"]}>
+      <DialogActions>
         <Button
           onClick={close}
           style={{ borderColor: "#00778b", color: "#00778b" }}

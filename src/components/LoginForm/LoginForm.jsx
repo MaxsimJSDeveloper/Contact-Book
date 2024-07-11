@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
-import { logIn } from "../../redux/auth/operations";
-
 import { Field, Form, Formik, ErrorMessage } from "formik";
-import { useId } from "react";
-
 import toast from "react-hot-toast";
+
+import { useId } from "react";
+import { useDispatch } from "react-redux";
+
+import { logIn } from "../../redux/auth/operations";
 import { login } from "../../js/validation";
 
 import styles from "../formStyles/massage.module.css";
@@ -12,8 +12,7 @@ import styles from "../formStyles/massage.module.css";
 const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const mailFieldId = useId();
-  const passwordFieldId = useId();
+  const id = useId();
 
   return (
     <Formik
@@ -21,8 +20,8 @@ const LoginForm = () => {
       validationSchema={login}
       onSubmit={(values, actions) => {
         const userData = {
-          email: values.email,
-          password: values.password,
+          email: values.email.trim(),
+          password: values.password.trim(),
         };
         dispatch(logIn(userData))
           .unwrap()
@@ -38,11 +37,11 @@ const LoginForm = () => {
       }}
     >
       <Form className={styles.formContainer}>
-        <label htmlFor={mailFieldId}>Email</label>
+        <label htmlFor={`${id}-e`}>Email</label>
         <Field
           type="email"
           name="email"
-          id={mailFieldId}
+          id={`${id}-e`}
           className={styles.inputField}
         />
         <div className={styles.wrap}>
@@ -53,11 +52,11 @@ const LoginForm = () => {
           />
         </div>
 
-        <label htmlFor={passwordFieldId}>Password</label>
+        <label htmlFor={`${id}-p`}>Password</label>
         <Field
           type="password"
           name="password"
-          id={passwordFieldId}
+          id={`${id}-p`}
           className={styles.inputField}
         />
         <div className={styles.wrap}>
