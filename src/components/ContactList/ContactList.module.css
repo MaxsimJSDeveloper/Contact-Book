@@ -14,3 +14,9 @@
   width: 310px;
   height: 96px;
 }
+
+.title {
+  margin-top: 250px;
+  text-align: center;
+  color: #f5f5f5;
+}

@@ -26,21 +26,26 @@ const ContactList = () => {
   };
 
   return (
-    <ul className={css.contactList}>
+    <div>
       {isLoading && !error && <Loader />}
-      {contacts.map((contact) => {
-        return (
-          <li key={contact.id} className={css.contactItem}>
-            <Contact contact={contact} modalOpenDelete={openModalDelete} />
-          </li>
-        );
-      })}
+      {contacts.length > 0 ? (
+        <ul className={css.contactList}>
+          {contacts.map((contact) => (
+            <li key={contact.id} className={css.contactItem}>
+              <Contact contact={contact} modalOpenDelete={openModalDelete} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        // eslint-disable-next-line react/no-unescaped-entities
+        <h1 className={css.title}>Let's add more contacts to the list !</h1>
+      )}
       <ModalDelete
         open={modalOpen}
         close={closeModalDelete}
         id={selectedContactId}
       />
-    </ul>
+    </div>
   );
 };
 
