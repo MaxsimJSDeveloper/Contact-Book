@@ -43,6 +43,7 @@ const RegistrationForm = () => {
           name="name"
           id={`${id}-n`}
           className={styles.inputField}
+          autoComplete="name"
         />
         <div className={styles.wrap}>
           <ErrorMessage
@@ -57,6 +58,7 @@ const RegistrationForm = () => {
           name="email"
           id={`${id}-e`}
           className={styles.inputField}
+          autoComplete="email"
         />
         <div className={styles.wrap}>
           <ErrorMessage
@@ -71,6 +73,7 @@ const RegistrationForm = () => {
           name="password"
           id={`${id}-p`}
           className={styles.inputField}
+          autoComplete="current-password"
         />
         <div className={styles.wrap}>
           <ErrorMessage

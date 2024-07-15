@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
 import ContactList from "../../components/ContactList/ContactList";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import {
   selectContacts,
   selectError,
@@ -34,17 +34,19 @@ export default function Contacts() {
 
   return (
     <>
-      <Logo />
-      <Helmet>
-        <title>Your contacts</title>
-      </Helmet>
-      <main className={css.container}>
-        {error && "Error! Try again"}
+      <HelmetProvider>
+        <Logo />
+        <Helmet>
+          <title>Contacts</title>
+        </Helmet>
+        <main className={css.container}>
+          {error && "Error! Try again"}
 
-        <ContactList contacts={contacts} />
-        {startLoad && <ContactFormWrap />}
-        <UserMenu />
-      </main>
+          <ContactList contacts={contacts} />
+          {startLoad && <ContactFormWrap />}
+          <UserMenu />
+        </main>
+      </HelmetProvider>
     </>
   );
 }
