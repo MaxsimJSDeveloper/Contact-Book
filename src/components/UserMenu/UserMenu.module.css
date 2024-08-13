@@ -4,7 +4,13 @@
   gap: 12px;
   position: absolute;
   top: 6%;
-  left: 86%;
+  left: 78%;
+}
+
+@media (min-width: 995px) {
+  .wrapper {
+    left: 86%;
+  }
 }
 
 .button {
