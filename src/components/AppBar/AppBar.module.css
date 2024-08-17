@@ -3,7 +3,6 @@
   margin-top: 30px;
   margin-bottom: 72px;
   padding: 10px 20px;
-  max-width: 435px;
   border-radius: 16px;
   height: 56px;
   background-color: #00778b;
@@ -14,18 +13,25 @@
   gap: 64px;
 }
 
-.loggedIn {
-  max-width: 300px;
-}
+@media (min-width: 769px) {
+  .loggedIn {
+    max-width: 300px;
+  }
 
-.loggedOut {
-  max-width: 435px;
+  .loggedOut {
+    max-width: 435px;
+  }
+
+  .header {
+    max-width: 435px;
+  }
 }
 
 .hamburger {
   font-size: 36px;
   cursor: pointer;
   color: #d9ebee;
+  margin-left: auto;
 }
 
 .mobile {

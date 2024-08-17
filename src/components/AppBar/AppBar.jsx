@@ -6,11 +6,13 @@ import { useSelector } from "react-redux";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 import css from "./AppBar.module.css";
+import { Box, Modal } from "@mui/material";
+import Logout from "../Logout/Logout";
 
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [open, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,11 +23,11 @@ const AppBar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleModalOpen = () => {
+  const handleOpen = () => {
     setIsModalOpen(true);
   };
 
-  const handleModalClose = () => {
+  const handleClose = () => {
     setIsModalOpen(false);
   };
 
@@ -37,21 +39,31 @@ const AppBar = () => {
     >
       {isMobile ? (
         <>
-          <RxHamburgerMenu
-            className={css.hamburger}
-            onClick={handleModalOpen}
-          />
-          {isModalOpen && (
-            <div className={css.modalOverlay} onClick={handleModalClose}>
-              <div
-                className={css.modalContent}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Navigation onLinkClick={handleModalClose} />
-                {!isLoggedIn && <AuthNav onLinkClick={handleModalClose} />}
-              </div>
-            </div>
-          )}
+          <RxHamburgerMenu className={css.hamburger} onClick={handleOpen} />
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                bgcolor: "#00778b",
+                boxShadow: 24,
+                p: 4,
+                outline: "none",
+                borderRadius: 5,
+              }}
+            >
+              <Navigation onClose={handleClose} />
+              {!isLoggedIn && <AuthNav onLinkClick={handleClose} />}
+              <Logout onClose={handleClose} />
+            </Box>
+          </Modal>
         </>
       ) : (
         <>
