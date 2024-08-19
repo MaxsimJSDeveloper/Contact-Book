@@ -1,3 +1,13 @@
-.trap {
-  display: none;
+.buttonWrap {
+  position: fixed;
+  top: 80%;
+  right: 2%;
+  color: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
 }

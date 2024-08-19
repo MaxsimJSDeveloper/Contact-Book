@@ -1,6 +1,5 @@
 .container {
   padding: 0 16px;
-  min-height: 75vh;
 }
 
 @media (min-width: 375px) {

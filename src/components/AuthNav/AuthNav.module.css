@@ -28,6 +28,7 @@
 @media (min-width: 769px) {
   .box {
     gap: 64px;
+    flex-direction: row;
   }
 
   .link {

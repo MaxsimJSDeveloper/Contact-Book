@@ -19,6 +19,7 @@ body {
   background: url("/img/bgImg.webp");
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 95.7vh;
 }
 
 h1,

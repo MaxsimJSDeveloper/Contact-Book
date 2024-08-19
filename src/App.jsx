@@ -12,6 +12,7 @@ import { Toaster } from "react-hot-toast";
 import Layout from "./components/Layout/Layout";
 import Loader from "./components/Loader/Loader";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Logo from "./components/Logo/Logo";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
@@ -33,6 +34,7 @@ function App() {
     <Loader />
   ) : (
     <>
+      <Logo />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

@@ -37,7 +37,7 @@ const ContactList = () => {
           ))}
         </ul>
       ) : (
-        <h1 className={css.title}>Let's add more contacts to the list !</h1>
+        <h1 className={css.title}>Let&apos;s add more contacts to the list!</h1>
       )}
       <ModalDelete
         open={modalOpen}

@@ -11,7 +11,7 @@ import { handleKeyPress } from "../../js/handleKeyPress";
 import styles from "../formStyles/massage.module.css";
 import css from "./ContactForm.module.css";
 
-const ContactForm = () => {
+const ContactForm = ({ close }) => {
   const id = useId();
 
   const dispatch = useDispatch();
@@ -71,7 +71,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <button type="submit" className={css.submitButton}>
+        <button onClick={close} type="submit" className={css.submitButton}>
           Add contact
         </button>
       </Form>

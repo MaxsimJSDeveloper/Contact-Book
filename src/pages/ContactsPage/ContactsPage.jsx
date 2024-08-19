@@ -9,8 +9,6 @@ import {
   selectIsLoading,
 } from "../../redux/contacts/selectors";
 
-import Logo from "../../components/Logo/Logo";
-
 import css from "./ContactsPage.module.css";
 import ContactFormWrap from "../../components/ContactFormWrap/ContactFormWrap";
 
@@ -34,7 +32,6 @@ export default function Contacts() {
   return (
     <>
       <HelmetProvider>
-        <Logo />
         <Helmet>
           <title>Contacts</title>
         </Helmet>
