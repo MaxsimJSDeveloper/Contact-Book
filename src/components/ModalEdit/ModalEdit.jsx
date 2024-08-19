@@ -69,7 +69,6 @@ const ModalEdit = () => {
       PaperProps={{
         sx: {
           borderRadius: "28px",
-          width: "447px",
           padding: 0,
         },
       }}

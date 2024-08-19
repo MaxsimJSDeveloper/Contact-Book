@@ -62,7 +62,7 @@ const AppBar = () => {
             >
               <Navigation onClose={handleClose} />
               {!isLoggedIn && <AuthNav onLinkClick={handleClose} />}
-              <Logout onClose={handleClose} />
+              {isLoggedIn && <Logout onClose={handleClose} />}
             </Box>
           </Modal>
         </>

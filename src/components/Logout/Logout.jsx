@@ -10,6 +10,9 @@ const Logout = ({ onClose }) => {
         marginTop: 50,
         backgroundColor: "inherit",
         border: "none",
+        display: "flex",
+        alignItems: "center",
+        fontSize: 24,
       }}
       onClick={() => {
         dispatch(logOut());
