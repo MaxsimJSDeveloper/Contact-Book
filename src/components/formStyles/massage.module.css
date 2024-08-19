@@ -39,3 +39,44 @@
 .submitButton:hover {
   background-color: #005e6e;
 }
+
+@media (max-width: 1024px) {
+  .formContainer {
+    width: 500px;
+    padding: 30px;
+  }
+
+  .inputField {
+    height: 45px;
+  }
+
+  .submitButton {
+    padding: 14px 140px;
+    height: 50px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .formContainer {
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .inputField {
+    height: 40px;
+  }
+
+  .submitButton {
+    padding: 12px 110px;
+    height: 45px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 450px) {
+  .formContainer {
+    width: 300px;
+  }
+}

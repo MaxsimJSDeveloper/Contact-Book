@@ -1,6 +1,5 @@
 .container {
   padding: 0 16px;
-  max-width: 400px;
   min-height: 75vh;
 }
 
@@ -16,20 +15,12 @@
   }
 }
 
-@media (min-width: 1000px) {
-  .container {
-    max-width: 800px;
-  }
-}
-
 @media (min-width: 1280px) {
   .container {
     padding: 0 64px;
   }
 }
 
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1200px;
-  }
+.wrap {
+  display: flex;
 }

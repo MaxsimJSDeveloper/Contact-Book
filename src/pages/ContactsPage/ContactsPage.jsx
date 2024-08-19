@@ -10,7 +10,6 @@ import {
 } from "../../redux/contacts/selectors";
 
 import Logo from "../../components/Logo/Logo";
-import { UserMenu } from "../../components/UserMenu/UserMenu";
 
 import css from "./ContactsPage.module.css";
 import ContactFormWrap from "../../components/ContactFormWrap/ContactFormWrap";
@@ -41,10 +40,10 @@ export default function Contacts() {
         </Helmet>
         <main className={css.container}>
           {error && "Error! Try again"}
-
-          <ContactList contacts={contacts} />
-          {startLoad && <ContactFormWrap />}
-          <UserMenu />
+          <div className={css.wrap}>
+            <ContactList contacts={contacts} />
+            {startLoad && <ContactFormWrap />}
+          </div>
         </main>
       </HelmetProvider>
     </>

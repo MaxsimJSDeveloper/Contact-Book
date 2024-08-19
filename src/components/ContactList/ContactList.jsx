@@ -26,7 +26,7 @@ const ContactList = () => {
   };
 
   return (
-    <div>
+    <div className={css.wrap}>
       {isLoading && !error && <Loader />}
       {contacts.length > 0 ? (
         <ul className={css.contactList}>
@@ -37,7 +37,6 @@ const ContactList = () => {
           ))}
         </ul>
       ) : (
-        // eslint-disable-next-line react/no-unescaped-entities
         <h1 className={css.title}>Let's add more contacts to the list !</h1>
       )}
       <ModalDelete

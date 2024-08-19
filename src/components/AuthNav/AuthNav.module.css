@@ -27,7 +27,6 @@
 
 @media (min-width: 769px) {
   .box {
-    flex-direction: row;
     gap: 64px;
   }
 

@@ -16,7 +16,7 @@ const Logout = ({ onClose }) => {
         onClose();
       }}
     >
-      logout
+      Logout
     </button>
   );
 };

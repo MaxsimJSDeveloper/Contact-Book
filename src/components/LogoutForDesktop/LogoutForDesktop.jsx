@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import css from "./UserMenu.module.css";
+import css from "./LogoutForDesktop.module.css";
 import ModalLogout from "../ModalLogout/ModalLogout";
 
-export const UserMenu = () => {
+export const LogoutForDesktop = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
 

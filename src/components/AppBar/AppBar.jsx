@@ -8,6 +8,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import css from "./AppBar.module.css";
 import { Box, Modal } from "@mui/material";
 import Logout from "../Logout/Logout";
+import { LogoutForDesktop } from "../LogoutForDesktop/LogoutForDesktop";
 
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -69,6 +70,7 @@ const AppBar = () => {
         <>
           <Navigation />
           {!isLoggedIn && <AuthNav />}
+          <LogoutForDesktop />
         </>
       )}
     </header>

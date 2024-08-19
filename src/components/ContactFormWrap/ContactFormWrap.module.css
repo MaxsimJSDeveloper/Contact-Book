@@ -1,15 +1,3 @@
-.wrap {
-  max-width: 335px;
-  position: fixed;
-  top: 25%;
-  left: 50%;
-}
-
-@media (min-width: 995px) {
-  .wrap {
-    max-width: 332px;
-    position: fixed;
-    top: 22.5%;
-    left: 72%;
-  }
+.trap {
+  display: none;
 }
