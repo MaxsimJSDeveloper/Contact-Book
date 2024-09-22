@@ -1,4 +1,4 @@
-## Phonebook
+# Phonebook
 
 ## Description:
 
@@ -14,7 +14,7 @@ The Phonebook was built using React.js with Vite for a fast and interactive user
 
 ## Development Tools:
 
-The main development environment for the project was Microsoft Visual Studio Code, with Git for version control. The app was deployed and hosted on Vercel.
+The main development environment for the project was VSCode, with Git for version control. The app was deployed and hosted on Vercel.
 
 ## Skills Acquired During the Project:
 

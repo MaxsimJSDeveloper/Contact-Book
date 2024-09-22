@@ -5,7 +5,6 @@ import {
   editContact,
   fetchContacts,
 } from "./operations";
-import { logOut } from "../auth/operations";
 import { selectContacts } from "./selectors";
 import { selectNameFilter } from "../filters/selectors";
 
@@ -72,11 +71,6 @@ const contactsSlice = createSlice({
           (contact) => contact.id === action.payload.id
         );
         state.items[index] = action.payload;
-      })
-      .addCase(logOut.fulfilled, (state) => {
-        state.items = [];
-        state.error = null;
-        state.isLoading = false;
       });
   },
 });
