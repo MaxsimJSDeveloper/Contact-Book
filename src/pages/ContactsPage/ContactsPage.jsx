@@ -7,11 +7,7 @@ import { CiCirclePlus } from "react-icons/ci";
 import { IconButton } from "@mui/material";
 import ModalCreate from "../../components/ModalCreate/ModalCreate";
 
-import {
-  selectContacts,
-  selectError,
-  selectIsLoading,
-} from "../../redux/contacts/selectors";
+import { selectError, selectIsLoading } from "../../redux/contacts/selectors";
 
 import css from "./ContactsPage.module.css";
 import ContactFormWrap from "../../components/ContactFormWrap/ContactFormWrap";
@@ -20,7 +16,6 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 export default function Contacts() {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(selectContacts);
   const error = useSelector(selectError);
   const loading = useSelector(selectIsLoading);
 
@@ -61,7 +56,7 @@ export default function Contacts() {
           {error && "Error! Try again"}
           {isMobile && <SearchBox />}
           <div className={css.wrap}>
-            <ContactList contacts={contacts} />
+            <ContactList />
             {isMobile ? (
               <>
                 <IconButton
