@@ -1,0 +1,4 @@
+.formWrap {
+  display: flex;
+  flex-direction: column;
+}

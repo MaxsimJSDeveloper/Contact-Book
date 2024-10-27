@@ -26,7 +26,7 @@ const ContactList = () => {
   };
 
   return (
-    <div className={css.wrap}>
+    <>
       {isLoading && !error && <Loader />}
       {contacts.length > 0 ? (
         <ul className={css.contactList}>
@@ -44,7 +44,7 @@ const ContactList = () => {
         close={closeModalDelete}
         id={selectedContactId}
       />
-    </div>
+    </>
   );
 };
 
