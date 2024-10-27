@@ -62,7 +62,13 @@ export default function Contacts() {
                 <IconButton
                   variant="outlined"
                   type="button"
-                  style={{ padding: "8px" }}
+                  style={{
+                    padding: "8px",
+                    color: "#fafafa",
+                    position: "fixed",
+                    top: "75%",
+                    right: "2%",
+                  }}
                   onClick={handleOpenModal}
                   aria-label="Add contact"
                   className={css.buttonWrap}

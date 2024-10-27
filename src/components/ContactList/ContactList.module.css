@@ -3,6 +3,7 @@
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(94px, 96px));
 }
 
 .contactItem {
@@ -11,7 +12,6 @@
   align-items: center;
   background-color: #d9ebee;
   border-radius: 16px;
-  height: 96px;
 }
 
 .title {

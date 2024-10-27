@@ -26,12 +26,11 @@
 }
 
 .buttonWrap {
-  position: fixed;
-  top: 75%;
-  right: 2%;
-  color: #fafafa;
   display: flex;
   flex-direction: column;
+  background-color: rgba(0, 118, 139, 0.5);
+  height: 120px;
+  border-radius: 16px;
 }
 
 .icon {
