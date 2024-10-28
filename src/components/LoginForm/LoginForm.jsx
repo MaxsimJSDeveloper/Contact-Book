@@ -1,18 +1,25 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import toast from "react-hot-toast";
 
-import { useId } from "react";
+import { useId, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { logIn } from "../../redux/auth/operations";
 import { login } from "../../js/validation";
 
 import styles from "../formStyles/massage.module.css";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
 
   const id = useId();
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  function changeVisible() {
+    setIsVisible(!isVisible);
+  }
 
   return (
     <Formik
@@ -54,13 +61,26 @@ const LoginForm = () => {
         </div>
 
         <label htmlFor={`${id}-p`}>Password</label>
-        <Field
-          type="password"
-          name="password"
-          id={`${id}-p`}
-          className={styles.inputField}
-          autoComplete="current-password"
-        />
+        <div className={styles.passwordInputWrap}>
+          <Field
+            type={isVisible ? "text" : "password"}
+            name="password"
+            id={`${id}-p`}
+            className={styles.inputField}
+            autoComplete="current-password"
+          />
+          <button
+            className={styles.changeVisibleBtn}
+            type="button"
+            onClick={changeVisible}
+          >
+            {isVisible ? (
+              <LuEyeOff className={styles.iconEye} />
+            ) : (
+              <LuEye className={styles.iconEye} />
+            )}
+          </button>
+        </div>
         <div className={styles.wrap}>
           <ErrorMessage
             name="password"
