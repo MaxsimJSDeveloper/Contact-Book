@@ -23,18 +23,6 @@ const contactsSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
-    isModalOpen: false,
-    activeContact: null,
-  },
-  reducers: {
-    setActiveContact(state, action) {
-      state.activeContact = action.payload;
-      state.isModalOpen = true;
-    },
-    clearActiveContact(state) {
-      state.activeContact = null;
-      state.isModalOpen = false;
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -75,8 +63,6 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { setActiveContact, clearActiveContact, toggleModal } =
-  contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
 
 export const selectFilteredContacts = createSelector(

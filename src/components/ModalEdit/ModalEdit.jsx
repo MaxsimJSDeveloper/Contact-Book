@@ -1,35 +1,23 @@
-import { Dialog } from "@mui/material";
 import toast from "react-hot-toast";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { editContact } from "../../redux/contacts/operations";
-import { clearActiveContact } from "../../redux/contacts/slice";
-import {
-  selectActiveContact,
-  selectIsOpen,
-} from "../../redux/contacts/selectors";
-
-import { useId } from "react";
 import { FeedbackSchema } from "../../js/validation";
 import { handleKeyPress } from "../../js/handleKeyPress";
+
+import Modal from "../Modal/Modal";
 
 import css from "./ModalEdit.module.css";
 import styles from "../formStyles/massage.module.css";
 
-const ModalEdit = () => {
+const ModalEdit = ({ open, close, contact }) => {
   const dispatch = useDispatch();
 
-  const activeContact = useSelector(selectActiveContact);
-  const isOpen = useSelector(selectIsOpen);
-
-  const id = useId();
-
   const handleSubmit = (values, actions) => {
-    if (activeContact) {
+    if (contact?.id) {
       dispatch(
         editContact({
-          id: activeContact.id,
+          id: contact.id,
           name: values.username,
           number: values.number,
         })
@@ -37,7 +25,6 @@ const ModalEdit = () => {
         .unwrap()
         .then(() => {
           toast.success("Successfully updated!", { position: "top-center" });
-          dispatch(clearActiveContact());
         })
         .catch(() => {
           toast.error("Error, input correct data", {
@@ -45,48 +32,33 @@ const ModalEdit = () => {
           });
         });
       actions.resetForm();
+      close();
     } else {
       toast.error("No active contact selected!", { position: "top-center" });
     }
   };
 
-  if (!activeContact) return null;
-
   const initialValues = {
-    username: activeContact.name || "",
-    number: activeContact.number || "",
+    username: contact?.name || "",
+    number: contact?.number || "",
   };
 
   return (
-    <Dialog
-      open={isOpen}
-      onClose={() => dispatch(clearActiveContact())}
-      BackdropProps={{
-        style: {
-          backgroundColor: "rgba(0, 0, 0, 0.1)",
-        },
-      }}
-      PaperProps={{
-        sx: {
-          borderRadius: "28px",
-          padding: 0,
-        },
-      }}
-    >
+    <Modal isOpen={open} onClose={close}>
       <Formik
         initialValues={initialValues}
         validationSchema={FeedbackSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={css.formContainer}>
-          <label className={css.label} htmlFor={`${id}-n`}>
+        <Form>
+          <label className={css.label} htmlFor="username">
             Username
           </label>
           <Field
             className={css.inputField}
             type="text"
             name="username"
-            id={`${id}-n`}
+            id="username"
             variant="outlined"
           />
           <div className={styles.wrap}>
@@ -96,8 +68,7 @@ const ModalEdit = () => {
               className={styles.errorMessage}
             />
           </div>
-
-          <label className={css.label} htmlFor={`${id}-p`}>
+          <label className={css.label} htmlFor="number">
             Phone
           </label>
           <Field
@@ -105,7 +76,7 @@ const ModalEdit = () => {
             pattern="\d*"
             onKeyPress={handleKeyPress}
             name="number"
-            id={`${id}-p`}
+            id="number"
             className={css.inputField}
           />
           <div className={styles.wrap}>
@@ -118,7 +89,8 @@ const ModalEdit = () => {
 
           <div className={css.btnWrap}>
             <button
-              onClick={() => dispatch(clearActiveContact())}
+              type="button"
+              onClick={close}
               className={`${css.btn} ${css.close}`}
             >
               Cancel
@@ -129,7 +101,7 @@ const ModalEdit = () => {
           </div>
         </Form>
       </Formik>
-    </Dialog>
+    </Modal>
   );
 };
 

@@ -1,3 +1,38 @@
-.dialog {
-  padding: 20px;
+.modalWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  text-align: center;
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  height: 40px;
+}
+
+.close {
+  width: 40%;
+  border: solid 1px #00778b;
+  color: #00778b;
+  background-color: inherit;
+  border-radius: 6px;
+}
+
+.delete {
+  width: 40%;
+  border-radius: 6px;
+  background-color: #00778b;
+  border: none;
+  color: #fafafa;
+}
+
+@media (min-width: 1200px) {
+  .modalWrap {
+    gap: 24px;
+  }
 }

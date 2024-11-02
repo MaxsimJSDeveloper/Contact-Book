@@ -1,20 +1,13 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
 import toast from "react-hot-toast";
-
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 
+import Modal from "../Modal/Modal";
 import css from "./ModalDelete.module.css";
 
 const ModalDelete = ({ open, close, id }) => {
   const dispatch = useDispatch();
+
   const handleDelete = () => {
     close();
     dispatch(deleteContact(id))
@@ -30,42 +23,26 @@ const ModalDelete = ({ open, close, id }) => {
   };
 
   return (
-    <Dialog
-      open={open}
-      onClose={close}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
-      PaperProps={{
-        sx: {
-          borderRadius: "24px",
-        },
-        className: css.dialog,
-      }}
-    >
-      <DialogTitle id="alert-dialog-title">{"Confirm Deletion"}</DialogTitle>
-      <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          Are you sure you want to delete this contact?
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button
-          onClick={close}
-          style={{ borderColor: "#00778b", color: "#00778b" }}
-          variant="outlined"
-        >
-          Cancel
-        </Button>
-        <Button
-          onClick={handleDelete}
-          style={{ backgroundColor: "#00778b" }}
-          variant="contained"
-          autoFocus
-        >
-          Delete
-        </Button>
-      </DialogActions>
-    </Dialog>
+    <Modal isOpen={open} onClose={close}>
+      <div className={css.modalWrap}>
+        <h3 className={css.title}>Confirm Deletion</h3>
+        <p>Are you sure you want to delete this contact?</p>
+
+        <div className={css.btnWrap}>
+          <button onClick={close} variant="outlined" className={css.close}>
+            Cancel
+          </button>
+          <button
+            onClick={handleDelete}
+            variant="contained"
+            className={css.delete}
+            autoFocus
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </Modal>
   );
 };
 

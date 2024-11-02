@@ -1,24 +1,32 @@
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { BsTrash, BsPencilSquare } from "react-icons/bs";
-import { setActiveContact } from "../../redux/contacts/slice";
-
 import { Avatar, IconButton } from "@mui/material";
 import { stringAvatar } from "../../js/utils";
+import ModalDelete from "../ModalDelete/ModalDelete";
 import ModalEdit from "../ModalEdit/ModalEdit";
 
 import css from "./Contact.module.css";
 
-const Contact = ({ contact, modalOpenDelete }) => {
-  const dispatch = useDispatch();
+const Contact = ({ contact }) => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const { id, name, number } = contact;
 
-  const handleEdit = () => {
-    dispatch(setActiveContact({ name, number, id }));
+  const openEditModal = () => {
+    setIsEditModalOpen(true);
   };
 
-  const handleDelete = () => {
-    modalOpenDelete(id);
+  const closeEditModal = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const openDeleteModal = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false);
   };
 
   return (
@@ -41,7 +49,7 @@ const Contact = ({ contact, modalOpenDelete }) => {
         variant="outlined"
         type="button"
         style={{ padding: "8px" }}
-        onClick={handleEdit}
+        onClick={openEditModal}
       >
         <BsPencilSquare className={css.pencil} />
       </IconButton>
@@ -49,11 +57,16 @@ const Contact = ({ contact, modalOpenDelete }) => {
         variant="outlined"
         type="button"
         style={{ padding: "8px" }}
-        onClick={handleDelete}
+        onClick={openDeleteModal}
       >
         <BsTrash className={css.bin} />
       </IconButton>
-      <ModalEdit />
+      <ModalDelete open={isDeleteModalOpen} close={closeDeleteModal} id={id} />
+      <ModalEdit
+        open={isEditModalOpen}
+        close={closeEditModal}
+        contact={contact}
+      />
     </>
   );
 };
