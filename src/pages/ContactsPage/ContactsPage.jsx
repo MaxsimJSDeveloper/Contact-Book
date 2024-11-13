@@ -20,11 +20,11 @@ export default function Contacts() {
   const loading = useSelector(selectIsLoading);
 
   const [startLoad, setStartLoad] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => setIsMobile(window.innerWidth <= 767);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

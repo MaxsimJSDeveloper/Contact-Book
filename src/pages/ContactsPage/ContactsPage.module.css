@@ -15,7 +15,7 @@
 
   .wrap {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 4fr 3fr;
     gap: 16px;
   }
 }
@@ -23,6 +23,10 @@
 @media (min-width: 1280px) {
   .container {
     padding: 0 64px;
+  }
+
+  .wrap {
+    grid-template-columns: 3fr 1fr;
   }
 }
 

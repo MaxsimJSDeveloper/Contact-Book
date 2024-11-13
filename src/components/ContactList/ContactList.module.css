@@ -2,10 +2,11 @@
   width: 100%;
   display: grid;
   gap: 24px;
+  justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(86px, 96px));
   max-height: 50vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   padding-right: 10px;
 }
@@ -39,8 +40,8 @@
   color: #f5f5f5;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .contactList {
-    max-height: 65vh;
+    max-height: 85vh;
   }
 }
