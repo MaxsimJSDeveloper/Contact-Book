@@ -3,7 +3,26 @@
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(94px, 96px));
+  grid-template-rows: repeat(auto-fit, minmax(86px, 96px));
+  max-height: 50vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+
+.contactList::-webkit-scrollbar {
+  width: 10px;
+}
+
+.contactList::-webkit-scrollbar-track {
+  background-color: #00768b82;
+  border-radius: 10px;
+}
+
+.contactList::-webkit-scrollbar-thumb {
+  background-color: #d9ebeebe;
+  border-radius: 10px;
+  border: 3px solid #00778b;
 }
 
 .contactItem {
@@ -18,4 +37,10 @@
   margin-top: 250px;
   text-align: center;
   color: #f5f5f5;
+}
+
+@media (min-width: 769px) {
+  .contactList {
+    max-height: 65vh;
+  }
 }

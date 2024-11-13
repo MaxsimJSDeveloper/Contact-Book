@@ -66,14 +66,14 @@ export default function Contacts() {
                     padding: "8px",
                     color: "#fafafa",
                     position: "fixed",
-                    top: "75%",
+                    top: "80%",
                     right: "2%",
                   }}
                   onClick={handleOpenModal}
                   aria-label="Add contact"
                   className={css.buttonWrap}
                 >
-                  <p>Add contact</p>
+                  <p className={css.text}>Add contact</p>
                   <CiCirclePlus className={css.icon} />
                 </IconButton>
                 <ModalCreate
